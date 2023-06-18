@@ -1,9 +1,3 @@
-"""
-Owner: Raja Saravanesh
-Developer: Raja Saravanesh
-
-"""
-
 from flask import Flask, render_template, request, redirect, session
 import mysql.connector
 import boto3
@@ -12,6 +6,8 @@ from botocore.config import Config
 import urllib.parse
 
 app = Flask(__name__)
+
+app.secret_key = 'your_secret_key'  # Set a secret key for session management
 
 # MySQL database configuration
 db_config = {
@@ -54,7 +50,13 @@ def index():
     cursor.close()
     conn.close()
 
+    """
+    return render_template('index.html', records=records)
+
+    """
+
     # Generate signed URLs for the S3 links
+    # Explicitly provide the AWS credentials
 
     aws_access_key_id = 'AKIAZDI6A6DZ34KG7EUD'
     aws_secret_access_key = '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'
