@@ -4,6 +4,8 @@
 <html>
 <head>
     <title>CloudTech Training</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
             margin: 0;
@@ -31,22 +33,7 @@
         }
 
         .table-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
             margin-top: 100px;
-            z-index: 1; /* Ensure the table is above the overlay */
-        }
-
-        table {
-            border-collapse: collapse;
-            color: white; /* Change text color to white for table headers and cells */
-            font-family: Arial, sans-serif; /* Change the font to a clean and neat font */
-        }
-
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
         }
 
         .play-button {
@@ -84,41 +71,46 @@
             z-index: 0; /* Place the overlay behind the content */
         }
     </style>
+    <style>
+        @media (max-width: 768px) {
+            .table-container {
+                overflow-x: auto;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="header">
         <h1>CloudTech Training</h1>
-        <div class="user-info">
-            Logged in as: {{ session['username'] }}
-        </div>
-        <a href="/signout" class="signout-button">Sign out</a>
     </div>
 
     <div class="table-container">
-        <table>
-            <tr>
-                <th>Class No</th>
-                <th>Class Name</th>
-                <th>Date Recorded</th>
-                <th>Class by</th>
-                <th>Video</th>
-            </tr>
-            
-            {% for record in records %}
+        <table class="table table-striped table-responsive">
+            <thead>
                 <tr>
-                    <td>{{ record[0] }}</td>
-                    <td>{{ record[1] }}</td>
-                    <td>{{ record[2] }}</td>
-                    <td>{{ record[3] }}</td>
-                    <td>
-                        {% if record[4] %}
-                        <a href="{{ record[4] }}" target="_blank"><button class="play-button"></button></a>
-                        {% else %}
-                            No URL available
-                        {% endif %}
-                    </td>
+                    <th>Class No</th>
+                    <th>Class Name</th>
+                    <th>Date Recorded</th>
+                    <th>Class by</th>
+                    <th>Video</th>
                 </tr>
-            {% endfor %}
+            </thead>
+            <tbody>
+                {% for record in records %}
+                    <tr>
+                        <td>{{ record[0] }}</td>
+                        <td>{{ record[1] }}</td>
+                        <td>{{ record[2] }}</td>
+                        <td>{{ record[3] }}</td>
+                        <td>
+                            {% if record[4] %}
+                                <a href="{{ record[4] }}" target="_blank"><button class="play-button"></button></a>
+                            {% else %}
+                                No URL available
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
         </table>
     </div>
 
