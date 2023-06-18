@@ -13,6 +13,8 @@ import urllib.parse
 
 app = Flask(__name__)
 
+app.secret_key = 'your_secret_key'  # Set a secret key for session management
+
 # MySQL database configuration
 db_config = {
     'host': 'videostore.ce7kmofwez7g.ap-south-1.rds.amazonaws.com',
