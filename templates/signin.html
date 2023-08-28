@@ -1,53 +1,583 @@
-<!-- Owner: Raja Saravanesh -->
-<!-- Developer: Raja Saravanesh -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Sign In</title>
-    <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS DevOps Training | CloudTech Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap" rel="stylesheet">
+<style>
         body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            min-height: 100vh;
+        }
+        
+        header {
+            background-color: rgba(0, 123, 255, 0.7);
+            /* Blue background with 70% opacity */
+            color: #FFF;
+            padding: 15px;
+            width: 100%;
+            top: 0;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .syllabus {
+            color: white;
+            text-align: center;
+            max-width: 950px;
+            margin: 100px auto; /* Adjusted margin to reduce space */
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .syllabus h2 {
+            font-size: 45px;
+            margin-bottom: 5px; /* Reduce the margin to decrease the gap */
+        }
+
+        .syllabus ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .syllabus li {
+            margin-bottom: 25px;
+            font-family: Edu+SA+Beginner;
+            font-size: 25px;
+            display: flex;
+            text-align: center;
+            align-items: flex-start;
+        }
+            
+        .animated-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            overflow: hidden;
             position: relative;
         }
 
+        .animated-list li {
+            opacity: 0;
+            transform: translateX(100%);
+            position: relative;
+        }
+
+        .animated-list li:nth-child(odd) {
+            animation: slideInFromRight 1s ease-in-out forwards;
+        }
+
+        .animated-list li:nth-child(even) {
+            animation: slideInFromLeft 1s ease-in-out forwards;
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .header-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+        }
+        
+        h1 {
+            font-size: 42px;
+            text-shadow: 2px 2px #FF9900;
+        }
+
+        h2 {
+            font-size: 50px;
+            font-family: 'Oswald', Arial, sans-serif;
+            color: #FFF;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px #FF9900;
+            text-align: center;
+        }
+
+        .signin-info {
+            text-align: center;
+            line-height: 0.7;
+            margin-left: 0;
+            display: inline-block;
+            padding: 20px;
+            width: 20%;
+            vertical-align: top;
+            position: absolute;
+            /*position: fixed;*/
+            /* Change to absolute position */
+            top: 25px;
+            right: 0px;
+            /* Adjust the top position as needed */
+            /*right: 30px;*/
+            /* Adjust the right position as needed */
+            z-index: 2;
+            /* Remove margin to center */
+            width: 30%;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-family: 'Oswald', Arial, sans-serif;
+            color: #FFF;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px #FF9900;
+            text-align: center;
+        }
+
+        /* Apply the blur effect to the background image */
         body::before {
             content: "";
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('/static/images/background.png');
+            /* background-image: url('/static/images/background.png'); */
+            background-color: black;
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
-            filter: blur(5px) opacity(0.5);
             z-index: -1;
+            filter: blur(5px);
         }
 
-        .signin-container {
+        footer {
+            background-color: #007BFF;
+            color: #FFF;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: relative; /* Change to "fixed" */
+            bottom: 0;
+            opacity: 0.7;
+            z-index: 2;
+        }
+
+        footer a {
+            color: #FFF;
+            text-decoration: none;
+            margin: 5px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50;
+        }
+
+        .header {
+            display: inline-block;
+            width: 48%;
+            vertical-align: top;
+            z-index: 1;
+        }
+
+        .signin-info {
+            text-align: center;
+            line-height: 0.7;
+            margin-left: 0;
+            /* Remove margin to center */
+            display: inline-block;
+            padding: 10px;
+            width: 30%;
+            vertical-align: top;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 3;
+        }
+
+        .main-text {
+            list-style-type: disc;
+            margin-left: 30px;
+            color: white;
+            /* Set the color of the list items to white */
+        }
+
+        .header ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .header li {
+            margin: 0 15px;
+            display: block;
+            /* Change display to block */
+        }
+
+        .header li a {
+            text-decoration: none;
+            color: #FFF;
+            font-size: 16px;
+            padding: 10px;
+            border-style: inset;
+        }
+
+        .content-text {
+            list-style-type: none;
+            color: white;
+            /* Set the color of the list items to white */
+            margin-left: 20px;
+            padding-left: 10px;
+            font-family: 'Kalam', Arial, sans-serif;
+            max-width: 600px;
+            /* Adjust the max-width as per your container size */
+            word-wrap: break-word;
+            /* or use word-break: break-word; */
+        }
+
+        .content-text ul {
+            white-space: pre;
+            display: block;
+        }
+
+        .content-text li {
+            margin-bottom: 10px;
+            color: white;
+            width: 100%;
+            display: inline-block;
+        }
+
+        .content-text li::before {
+            /* Checkmark Unicode character */
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            display: inline-block;
+            /* Change display to inline-block */
+            width: 1.5em;
+            /* Adjust width as needed */
+            margin-right: 10px;
+        }
+
+        .course-details {
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
+            margin-top: 50px;
+            /* Adjust the margin as needed */
+        }
+
+        .course-details h2 {
+            font-size: 45px;
+            margin-bottom: 5px;
+        }
+
+        .course-description {
+            margin-top: 2px; /* Adjust the margin as needed */
+        }
+
+        p {
+            color: white;
+            /* Change the color of the text to white */
+        }
+
+        .left-aligned {
+            text-align: left;
         }
 
         form {
+            color: white;
+        }
+
+        .form-row {
+            display: flex;
+            /* Use flexbox to place elements in the same row */
+            align-items: center;
+            /* Align items vertically in the center */
+            margin-bottom: 5px;
+            /* Add some spacing between form rows */
+        }
+
+        .form-row label {
+            margin-right: 5px;
+            /* Add some spacing between label and input */
+        }
+
+        form input[type="text"],
+        form input[type="password"],
+        form input[type="submit"] {
+            background-color: #FFF;
+            color: black;
+            border: none;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        form input[type="submit"] {
+            cursor: pointer;
+        }
+
+        .signin-info {
+            text-align: center;
+            line-height: 0.7;
+            margin-left: 0;
+            padding: 20px;
+            width: 20%;
+            vertical-align: top;
+            position: absolute;
+            /* Change to absolute position */
+            top: 0px;
+            /* Adjust the top position as needed */
+            right: 0px;
+            /* Adjust the right position as needed */
+            z-index: 2;
+        }
+
+        .signin-form {
+            color: white;
+            display: inline-block;
+        }
+
+        .signin-form label {
+            margin-right: 5px;
+        }
+
+        .signin-form input[type="text"],
+        .signin-form input[type="password"],
+        .signin-form input[type="submit"] {
+            background-color: #FFF;
+            color: black;
+            border: none;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .signin-form input[type="submit"] {
+            cursor: pointer;
+        }
+
+        .signin-options {
+            color: white;
             text-align: center;
         }
+
+        .signup-link {
+            color: white;
+            text-decoration: none;
+        }
+
+        .signup-link:hover {
+            text-decoration: underline;
+        }
+
+
+        @media (max-width: 768px) {
+            header {
+                padding: 5px;
+            }
+
+            .signin-info {
+                line-height: 0.8;
+            }
+
+            .syllabus, .course-details {
+                flex-direction: column;
+            }
+
+            .syllabus h2, h1, h2 {
+                font-size: 30px;
+            }
+
+            .syllabus li, .animated-list li {
+                font-size: 20px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            h1, h2 {
+                font-size: 1rem;  /* Even smaller font size */
+            }
+
+            .header ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header li {
+                margin: 0.2rem 0;
+            }
+
+            .header li a {
+                font-size: 0.7rem;
+                padding: 0.3rem;
+            }
+
+            .course-details {
+                font-size: 15px;
+                display: flex;
+                position: absolute;
+                flex-direction: column;
+                align-items: center;
+                padding: 10px;
+                top: 20%;  
+            }
+
+            .course-details h2 {
+                font-size: 25px;
+                margin-bottom: 5px;
+                padding-bottom: 20px;  /* You can adjust this value */
+            }
+
+            .course-details li, .course-details p {
+                font-size: 35px; /* Or whatever size makes sense */
+            }
+
+            footer {
+                position: fixed; /* Change from 'relative' to 'fixed' */
+                bottom: 0;  /* Stick it to the bottom */
+                left: 0;
+                right: 0;
+                width: 100%;  /* Cover full width */
+            }
+        }
+
+        /* Media query for mobile devices */
+        @media (max-width: 480px) {
+            header {
+                padding: 5px;
+            }
+
+            .syllabus, .course-details {
+                flex-direction: column;
+            }
+
+            .syllabus h2, h1, h2 {
+                font-size: 20px;
+            }
+
+            .syllabus li, .animated-list li {
+                font-size: 16px;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            h1, h2 {
+                font-size: 1rem;  /* Even smaller font size */
+            }
+
+            .header ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .header li {
+                margin: 0.2rem 0;
+            }
+
+            .header li a {
+                font-size: 0.7rem;
+                padding: 0.3rem;
+            }
+
+            .signin-info {
+                position: absolute;  /* Keeping it absolute but you can change to relative based on your needs */
+                width: 100%;  /* take full width */
+                padding: 8px;
+                top: 25%;  /* Push down by 20% */
+                right: auto;  /* auto position */
+                line-height: 0.1;
+            }
+
+            .course-details {
+                font-size: 15px;
+                display: flex;
+                position: absolute;
+                flex-direction: column;
+                align-items: center;
+                padding: 12px;
+                top: 40%;  
+            }
+
+            .course-details h2 {
+                font-size: 25px;
+                margin-bottom: 2px;
+            }
+
+            h2.header-end {
+                padding-bottom: 60px;
+            }
+
+            .course-details li, .course-details p {
+                font-size: 25px; /* Or whatever size makes sense */
+            }
+
+            footer {
+                position: fixed; /* Change from 'relative' to 'fixed' */
+                bottom: 0;  /* Stick it to the bottom */
+                left: 0;
+                right: 0;
+                width: 100%;  /* Cover full width */
+            }
+        }
+
     </style>
 </head>
 <body>
-    <div class="signin-container">
-        <h2>Sign In</h2>
+    <header class="header">
+        <div class="header-content">
+            <h1>CloudTech Training</h1>
+            <nav>
+                <ul>
+                    <li><a href="#" id="home-link">Home</a></li>
+                    <li><a href="#" id="about-link">About Me</a></li>
+                    <li><a href="#" id="courses-link">Courses</a></li>
+                    <li><a href="/blog" id="blog-link">Blog</a></li>
+                    <li><a href="#" id="contact-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="signin-info">
+        <h3>Student Log In</h3>
         {% if error_message %}
             <p style="color: red;">{{ error_message }}</p>
         {% endif %}
-        <form action="/signin" method="post">
+
+        <form action="/signin" method="post" class="signin-form">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required><br><br>
             
@@ -56,7 +586,148 @@
             
             <input type="submit" value="Sign In">
         </form>
-        <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+
+        <div class="signin-options">
+            <p>Don't have an account? <a href="/signup" class="signup-link">Sign Up</a></p>
+            <p>Login as <a href="/trainer_page_1" class="signup-link">Trainer</a></p>
+        </div>
     </div>
+
+    <div class="syllabus" id="course-details">
+        <!-- Course details here... -->
+    </div>
+
+    <script>
+        // Function to display the course details based on the selected option
+        function showCourseDetails(course) {
+            // Course details for different options
+            const courseDetails = {
+                home: `
+                <div class="course-details">
+                    <h2>Online AWS DevOps Course</h2>
+                        <div class="course-description">
+                            <ul class="syllabus animated-list">
+                                <li>Hands-on learning with live projects</li>
+                                <li>Gain practical experience with real-world scenarios</li>
+                                <li>Practice complex DevOps tasks</li>
+                                <li>Comprehensive interview preparation and job support</li>
+                                <li>Flexible online training</li>
+                                <li>Collaborate with individual trainer with extra care</li>
+                                <li>Stay updated with the latest trends</li>
+                                <li>Competitive and flexible pricing options</li>
+                            </ul>
+                        </div>
+                    <h2 class="header-end">Enroll now and take the first step towards becoming a proficient AWS DevOps professional!</h2>
+                `,
+                "about me": `
+                    <h2>About Me</h2>
+                    <ul class="syllabus animated-list left-aligned" id="About-Me">
+                        <li>Hi there, future cloud experts! I'm not your typical trainer from a big company. During the day, I work in AWS for well-known healthcare and finance companies. In my free time, I teach AWS and Azure DevOps. Why? Because I love helping people learn and grow in tech.</li>
+                        <li>I've been in the IT field for over 12 years, working for major companies in healthcare and finance. Now, I want to share my AWS experience with you. This isn't just another course; it's a full guide on AWS DevOps that prepares you for real-world challenges.</li>
+                        <li>Whether you're an experienced techie or brand new to cloud computing, this course is for you. I've designed the lessons to meet your specific needs, no matter your level of experience.</li>
+                        <li>I've built this course from the ground up, mixing basics with expert tips from my years on the job. I've also added hands-on projects to make sure you're ready to use your new skills right away.</li>
+                    </ul>
+                `, 
+                courses: `
+                    <h2>AWS DevOps Training</h2>
+                    <h2>Course Includes</h2>
+                    <ul class="syllabus animated-list">
+                        <li>📚 Syllabus Overview:
+                                <li><strong>👉 Introduction to AWS:</strong>
+                                        <li>Overview of cloud computing and its Benefits</li>
+                                        <li>Introduction to Amazon Web Services</li>
+                                        <li>Understanding the AWS global infrastructure and security features</li>
+                                </li>
+                                <li><strong>👉 AWS Core Services:</strong>
+                                        <li>Amazon IAM: Identity and Access Management</li>
+                                        <li>Amazon EC2: Elastic Compute Cloud</li>
+                                        <li>Amazon S3: Simple Storage Service</li>
+                                        <li>Amazon RDS: Relational Database Service</li>
+                                        <li>Amazon VPC: Virtual Private Cloud</li>
+                                        <li>AWS Lambda: Serverless computing</li>
+                                </li>
+                                <li><strong>👉 Advanced Topics:</strong>
+                                        <li>Monitoring and logging with Amazon CloudWatch</li>
+                                        <li>AWS CloudTrail: Logging and monitoring service</li>
+                                        <li>Amazon CloudFront: Content Delivery Network (CDN) service</li>
+                                        <li>Amazon DynamoDB: NoSQL database service</li>
+                                        <li>Deployment strategies and best practices</li>
+                                        <li>Performance optimization and cost management</li>
+                                </li>
+                                <li><strong>👉 DevOps Principles and Tools:</strong>
+                                        <li>Using Git for source code management</li>
+                                        <li>Implementing Continuous Integration with Jenkins</li>
+                                        <li>Working with AWS DevOps Services</li>
+                                        <li>Configuration management with Ansible</li>
+                                        <li>Containerization using Docker</li>
+                                        <li>Managing Docker Containers using Kubernetes</li>
+                                </li>
+                                <li><strong>👉 Infrastructure as Code (IaC):</strong>
+                                        <li>Managing infrastructure with AWS CloudFormation</li>
+                                        <li>Infrastructure provisioning with Terraform</li>
+                                </li>
+                                <li><strong>👉 Python & Linux:</strong>
+                                        <li>Python fundamentals and syntax</li>
+                                        <li>Building Python applications for AWS</li>
+                                        <li>Linux operating system fundamentals</li>
+                                        <li>Command-line interface and shell scripting</li>
+                                </li>
+                                <li><strong>👉 Certification and Career Guidance:</strong>
+                                        <li>Tips and techniques to excel in the certification exams</li>
+                                        <li>Guidance on creating an impressive resume</li>
+                                        <li>Strategies to enhance your professional profile on LinkedIn and Naukri</li>
+                                </li>
+                        </li>
+                    </ul>
+                    <h2>A path to take up more self-learning trainings and achieve more Certifications.</h2>
+                `,
+                blog: `
+                <a href="/blog" target="_blank">Blog</a>
+                `,
+                contact: `
+                    <h2>Contact</h2>
+                    <ul class="syllabus animated-list" id="course-details">
+                        <li>Contact No: +91 9003662636</li>
+                        <li>E-Mail: cloudtech.trainer@gmail.com</li>
+                        <!-- Rest of the course details... -->
+                    </ul>
+                `,
+            };
+
+            // Get the selected course
+            const selectedCourse = course.toLowerCase();
+
+            // Display the corresponding course details
+            const courseDetailsDiv = document.getElementById("course-details");
+            courseDetailsDiv.innerHTML = courseDetails[selectedCourse];
+        }
+
+        // Add event listeners to handle clicks on navigation links
+        document.addEventListener("DOMContentLoaded", function () {
+            // Show default course (e.g., "Home") when the page loads
+            showCourseDetails("home");
+
+            const navLinks = document.querySelectorAll("nav ul li a");
+            navLinks.forEach((link) => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    if (this.id === "blog-link") {
+                // Open the Blog link in a new tab
+                       window.open(this.href, "_blank");
+                    } else {
+                // Show course details for other sections
+                        showCourseDetails(this.textContent);
+                    }
+                });
+            });
+        });
+    </script>
+    <footer>
+            &copy; 2023 BlackGarden Technologies. All rights reserved.
+            <br>
+            <a href="https://www.instagram.com/blackgarden.tech/" target="_blank">Instagram</a>
+            <a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>
+            <a href="https://wa.me/919003662636" target="_blank">WhatsApp</a>
+    </footer>
 </body>
 </html>

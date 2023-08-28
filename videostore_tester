@@ -1,0 +1,35 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+import os
+import time
+
+# Read ID and password from a file
+with open("/Users/slver/Documents/CloudTech/VideoStore_1/credentials.txt", "r") as f:
+    lines = f.readlines()
+    username = lines[0].strip()
+    password = lines[1].strip()
+
+# Initialize WebDriver
+driver = webdriver.Chrome(executable_path="/Users/slver/Documents/CloudTech/chromedriver")
+
+# Open the website
+driver.get("https://cloudtechtr.click/signin")
+
+# Assuming username and password fields have input tags with name attributes "username" and "password"
+driver.find_element(By.NAME, "username").send_keys(username)
+driver.find_element(By.NAME, "password").send_keys(password)
+driver.find_element(By.NAME, "password").send_keys(Keys.RETURN)
+
+# Add a sleep to wait for login to complete
+time.sleep(5)
+
+# Validate if login was successful
+if "some expected element or text after login" in driver.page_source:
+    print("Login successful")
+else:
+    print("Login failed")
+    driver.quit()
+
+# Close the browser
+driver.quit()
