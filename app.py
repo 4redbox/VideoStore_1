@@ -441,7 +441,7 @@ def blog():
     return render_template("blog.html")
 
 @app.route('/blog-post-1')
-def blog():
+def blog_post_1():
     return render_template("blog-post-1.html")
 
 @app.route('/signout')
