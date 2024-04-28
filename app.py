@@ -442,7 +442,7 @@ def blog():
 
 @app.route('/Building-a-Two-Way-Data-Sync')
 def blog_post_1():
-    return render_template("/Building_a_Two_Way_Data_Sync.html")
+    return render_template("/blog_posts/Building_a_Two_Way_Data_Sync.html")
 
 @app.route('/signout')
 def signout():
