@@ -440,6 +440,10 @@ def trainersignout():
 def blog():
     return render_template("blog.html")
 
+@app.route('/blog-post-1')
+def blog():
+    return render_template("blog-post-1.html")
+
 @app.route('/signout')
 def signout():
     session.pop('username', None)  # Remove username from the session
