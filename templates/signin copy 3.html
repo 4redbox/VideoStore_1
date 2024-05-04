@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-margin=100vh">
+    <title>AWS DevOps Training | CloudTech Training</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: #FFF;
+            padding: 15px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            opacity: 70%;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .signin-info {
+            text-align: center;
+            line-height: 0.5;
+            margin-left: 0; /* Remove margin to center */
+        }
+
+        h1 {
+            font-size: 42px;
+            text-shadow: 2px 2px #FF9900;
+            /* margin: 0; */
+            /* margin-bottom: 10px; */
+            /* margin-right: 10px; */
+        }
+
+        h2 {
+            font-size: 20px;
+            color:#FFF;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px #FF9900;
+            text-align: center;
+        }
+
+        /* Apply the blur effect to the background image */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('/static/images/background.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            z-index: -1;
+            filter: blur(5px);
+        }
+
+        footer {
+            background-color: #007BFF;
+            color: #FFF;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: relative; /* Change to "fixed" */
+            bottom: 0;
+            opacity: 0.7;
+            z-index: 2;
+        }
+
+        footer a {
+            color: #FFF;
+            text-decoration: none;
+            margin: 5px;
+        }
+
+        .syllabus {
+            margin: 40px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 30px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50;
+        }
+
+        ll {
+            list-style-type: none;
+            padding: 15;
+            margin: 0;
+            display: flex;
+        }
+
+        li {
+            margin: 0 15px;
+        }
+
+        li a {
+            text-decoration: none;
+            color: #FFF;
+            font-size: 16px;
+            padding: 15;
+            border-style: inset;
+        }
+
+        .header {
+            display: inline-block;
+            width: 48%;
+            vertical-align: top;
+        }
+
+        .signin-info {
+            display: inline-block;
+            width: 30%;
+            vertical-align: top;
+            position: fixed;
+            top: 0;
+            right: 0;
+        }
+
+        .syllabus {
+            margin-top: 60px; /* Bring the syllabus content down by 60px */
+        }
+
+        .main-text {
+        list-style-type: disc;
+        margin-left: 30px;
+        color: white; /* Set the color of the list items to white */
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>CloudTech Training</h1>
+            <nav>
+                <ll>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Me</a></li>
+                    <li><a href="/courses">Courses</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ll>
+            </nav>
+        </div>
+    </header>
+    <div class="signin-info">
+        <h2>Student Log In</h2>
+        {% if error_message %}
+            <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+        <form action="/signin" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            
+            <input type="submit" value="Sign In">
+        </form>
+        <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+        <p>Login as <a href="/trainer_page_1">Trainer</a></p>
+    </div>
+    <div class="syllabus">
+        <h2>Welcome to the Universe of AWS Cloud</h2>
+        <h2>Course Includes</h2>
+        <ul class="main-text">
+            <li>How to stay up in tech trends</li>
+            <li>Software - What is it? Why is it important?</li>
+            <li>Cloud Computing - A Revolution in Server Management</li>
+            <li>AWS core services with Practice</li>
+            <li>AWS advances with sample projects</li>
+            <li>Get in-depth knowledge on Linux and Linux commands and do shell scripting</li>
+            <li>What is DevOps and Why DevOps + Cloud is a killer combination in the market right now</li>
+            <li>DevOps Tools with practice including Git, GitHub, Jenkins, AWS Pipeline, Docker, Kubernetes, Terraform, and Ansible</li>
+            <li>Certification - How to Crack it the very first time</li>
+            <li>Career Support - How to use social media platforms/ Polished resume/ Build a stand out profile</li>
+        </ul>
+    </div>
+
+    <footer>
+        &copy; 2023 BlackGarden Technologies. All rights reserved.
+        <br>
+        <a href="https://www.instagram.com/blackgarden.tech/" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>
+        <a href="https://wa.me/919003662636" target="_blank">WhatsApp</a>
+    </footer>
+</body>
+</html>
