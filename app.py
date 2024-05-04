@@ -440,9 +440,9 @@ def trainersignout():
 def blog():
     return render_template("blog.html")
 
-@app.route('/blog-post-1')
-def blog():
-    return render_template("blog-post-1.html")
+@app.route('/Building-a-Two-Way-Data-Sync')
+def blog_post_1():
+    return render_template("/blog_posts/Building_a_Two_Way_Data_Sync.html")
 
 @app.route('/signout')
 def signout():
