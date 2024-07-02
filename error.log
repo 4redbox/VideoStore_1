@@ -1,0 +1,271 @@
+[2023-07-06 02:01:01 +0000] [26510] [INFO] Starting gunicorn 20.1.0
+[2023-07-06 02:01:01 +0000] [26510] [INFO] Listening at: http://127.0.0.1:8000 (26510)
+[2023-07-06 02:01:01 +0000] [26510] [INFO] Using worker: sync
+[2023-07-06 02:01:01 +0000] [26513] [INFO] Booting worker with pid: 26513
+[2023-07-06 02:01:06 +0000] [26510] [INFO] Handling signal: int
+[2023-07-06 02:01:06 +0000] [26510] [INFO] Shutting down: Master
+[2023-07-06 02:01:40 +0000] [26515] [INFO] Starting gunicorn 20.1.0
+[2023-07-06 02:01:40 +0000] [26515] [INFO] Listening at: http://0.0.0.0:5000 (26515)
+[2023-07-06 02:01:40 +0000] [26515] [INFO] Using worker: sync
+[2023-07-06 02:01:40 +0000] [26518] [INFO] Booting worker with pid: 26518
+[2023-07-06 02:02:33 +0000] [26515] [INFO] Handling signal: hup
+[2023-07-06 02:02:33 +0000] [26515] [INFO] Hang up: Master
+[2023-07-06 02:02:33 +0000] [26515] [WARNING] Worker with pid 26518 was terminated due to signal 1
+[2023-07-06 02:02:33 +0000] [26520] [INFO] Booting worker with pid: 26520
+[2023-07-06 02:02:47,718] ERROR in app: Exception on /signin [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 153, in signin
+    print('username: '+username)
+OSError: [Errno 5] Input/output error
+[2023-07-06 02:03:12,675] ERROR in app: Exception on /signin [POST]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 153, in signin
+    print('username: '+username)
+OSError: [Errno 5] Input/output error
+[2023-07-06 02:05:14,281] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 47, in index
+OSError: [Errno 5] Input/output error
+[2023-07-06 02:05:16,125] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 47, in index
+OSError: [Errno 5] Input/output error
+[2023-07-06 02:06:00 +0000] [26515] [INFO] Handling signal: term
+[2023-07-06 02:06:00 +0000] [26520] [INFO] Worker exiting (pid: 26520)
+[2023-07-06 02:06:00 +0000] [26515] [INFO] Shutting down: Master
+[2023-07-06 02:08:50 +0000] [27559] [INFO] Starting gunicorn 20.1.0
+[2023-07-06 02:08:50 +0000] [27559] [INFO] Listening at: http://0.0.0.0:5000 (27559)
+[2023-07-06 02:08:50 +0000] [27559] [INFO] Using worker: sync
+[2023-07-06 02:08:50 +0000] [27562] [INFO] Booting worker with pid: 27562
+[2023-07-06 02:09:15 +0000] [27559] [INFO] Handling signal: hup
+[2023-07-06 02:09:15 +0000] [27559] [INFO] Hang up: Master
+[2023-07-06 02:09:15 +0000] [27559] [WARNING] Worker with pid 27562 was terminated due to signal 1
+[2023-07-06 02:09:15 +0000] [27564] [INFO] Booting worker with pid: 27564
+[2023-07-06 02:09:27,128] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 47, in index
+    print('studentname: '+studentname)
+OSError: [Errno 5] Input/output error
+[2023-07-06 02:12:51 +0000] [27559] [INFO] Handling signal: term
+[2023-07-06 02:12:51 +0000] [27564] [INFO] Worker exiting (pid: 27564)
+[2023-07-06 02:12:51 +0000] [27559] [INFO] Shutting down: Master
+[2023-07-06 02:12:57 +0000] [28088] [INFO] Starting gunicorn 20.1.0
+[2023-07-06 02:12:57 +0000] [28088] [INFO] Listening at: http://0.0.0.0:5000 (28088)
+[2023-07-06 02:12:57 +0000] [28088] [INFO] Using worker: sync
+[2023-07-06 02:12:57 +0000] [28091] [INFO] Booting worker with pid: 28091
+[2023-07-06 02:14:56 +0000] [28088] [INFO] Handling signal: int
+[2023-07-06 02:14:56 +0000] [28088] [INFO] Shutting down: Master
+[2023-07-06 02:15:07 +0000] [28126] [INFO] Starting gunicorn 20.1.0
+[2023-07-06 02:15:07 +0000] [28126] [INFO] Listening at: http://0.0.0.0:5000 (28126)
+[2023-07-06 02:15:07 +0000] [28126] [INFO] Using worker: sync
+[2023-07-06 02:15:07 +0000] [28129] [INFO] Booting worker with pid: 28129
+[2023-07-06 02:15:43 +0000] [28126] [INFO] Handling signal: int
+[2023-07-06 02:15:43 +0000] [28129] [INFO] Worker exiting (pid: 28129)
+[2023-07-06 02:15:44 +0000] [28126] [INFO] Shutting down: Master
+[2023-07-06 02:17:37 +0000] [28165] [INFO] Starting gunicorn 20.1.0
+[2023-07-06 02:17:37 +0000] [28165] [INFO] Listening at: http://0.0.0.0:5000 (28165)
+[2023-07-06 02:17:37 +0000] [28165] [INFO] Using worker: sync
+[2023-07-06 02:17:37 +0000] [28168] [INFO] Booting worker with pid: 28168
+[2023-07-06 02:27:15 +0000] [28165] [INFO] Handling signal: hup
+[2023-07-06 02:27:15 +0000] [28165] [INFO] Hang up: Master
+[2023-07-06 02:27:15 +0000] [28165] [WARNING] Worker with pid 28168 was terminated due to signal 1
+[2023-07-06 02:27:15 +0000] [28186] [INFO] Booting worker with pid: 28186
+[2023-07-06 02:27:27,660] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 47, in index
+    print('studentname:', studentname)
+OSError: [Errno 5] Input/output error
+[2023-07-06 02:28:15 +0000] [28165] [INFO] Handling signal: term
+[2023-07-06 02:28:15 +0000] [28186] [INFO] Worker exiting (pid: 28186)
+[2023-07-06 02:28:15 +0000] [28165] [INFO] Shutting down: Master
+[2023-07-06 02:28:20 +0000] [28817] [INFO] Starting gunicorn 20.1.0
+[2023-07-06 02:28:20 +0000] [28817] [INFO] Listening at: http://0.0.0.0:5000 (28817)
+[2023-07-06 02:28:20 +0000] [28817] [INFO] Using worker: sync
+[2023-07-06 02:28:20 +0000] [28820] [INFO] Booting worker with pid: 28820
+[2023-07-06 02:28:33 +0000] [28817] [INFO] Handling signal: hup
+[2023-07-06 02:28:33 +0000] [28817] [INFO] Hang up: Master
+[2023-07-06 02:28:33 +0000] [28817] [WARNING] Worker with pid 28820 was terminated due to signal 1
+[2023-07-06 02:28:33 +0000] [28821] [INFO] Booting worker with pid: 28821
+[2023-07-06 02:28:42,601] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 48, in index
+    print('batchid: '+batchid)
+OSError: [Errno 5] Input/output error
+[2023-07-06 02:29:29,995] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 48, in index
+    print('batchid: '+batchid)
+OSError: [Errno 5] Input/output error
+[2023-07-06 02:29:44 +0000] [28817] [INFO] Handling signal: term
+[2023-07-06 02:29:44 +0000] [28821] [INFO] Worker exiting (pid: 28821)
+[2023-07-06 02:29:44 +0000] [28817] [INFO] Shutting down: Master
+[2023-07-06 02:29:49 +0000] [29253] [INFO] Starting gunicorn 20.1.0
+[2023-07-06 02:29:49 +0000] [29253] [INFO] Listening at: http://0.0.0.0:5000 (29253)
+[2023-07-06 02:29:49 +0000] [29253] [INFO] Using worker: sync
+[2023-07-06 02:29:49 +0000] [29256] [INFO] Booting worker with pid: 29256
+[2023-07-06 02:30:03 +0000] [29253] [INFO] Handling signal: hup
+[2023-07-06 02:30:03 +0000] [29253] [INFO] Hang up: Master
+[2023-07-06 02:30:03 +0000] [29253] [WARNING] Worker with pid 29256 was terminated due to signal 1
+[2023-07-06 02:30:03 +0000] [29263] [INFO] Booting worker with pid: 29263
+[2023-07-06 02:30:16,419] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 48, in index
+    print('batchid: '+batchid)
+OSError: [Errno 5] Input/output error
+[2023-07-06 02:30:51 +0000] [29253] [INFO] Handling signal: term
+[2023-07-06 02:30:51 +0000] [29263] [INFO] Worker exiting (pid: 29263)
+[2023-07-06 02:30:51 +0000] [29253] [INFO] Shutting down: Master
+[2023-07-06 02:31:19 +0000] [29953] [INFO] Starting gunicorn 20.1.0
+[2023-07-06 02:31:19 +0000] [29953] [INFO] Listening at: http://0.0.0.0:5000 (29953)
+[2023-07-06 02:31:19 +0000] [29953] [INFO] Using worker: sync
+[2023-07-06 02:31:19 +0000] [29956] [INFO] Booting worker with pid: 29956
+[2023-07-06 02:34:25 +0000] [29953] [INFO] Handling signal: hup
+[2023-07-06 02:34:25 +0000] [29953] [INFO] Hang up: Master
+[2023-07-06 02:34:25 +0000] [29953] [WARNING] Worker with pid 29956 was terminated due to signal 1
+[2023-07-06 02:34:25 +0000] [30011] [INFO] Booting worker with pid: 30011
+[2023-07-06 14:49:08,847] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 54, in index
+    cursor.execute(classesquery, (batchid,))
+UnboundLocalError: local variable 'batchid' referenced before assignment
+[2023-07-06 14:49:24,364] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 54, in index
+    cursor.execute(classesquery, (batchid,))
+UnboundLocalError: local variable 'batchid' referenced before assignment
+[2023-07-06 14:52:00 +0000] [29953] [INFO] Handling signal: term
+[2023-07-06 14:52:00 +0000] [30011] [INFO] Worker exiting (pid: 30011)
+[2023-07-06 14:52:01 +0000] [29953] [INFO] Shutting down: Master
+[2023-07-06 14:52:13 +0000] [901] [INFO] Starting gunicorn 20.1.0
+[2023-07-06 14:52:13 +0000] [901] [INFO] Listening at: http://0.0.0.0:5000 (901)
+[2023-07-06 14:52:13 +0000] [901] [INFO] Using worker: sync
+[2023-07-06 14:52:13 +0000] [906] [INFO] Booting worker with pid: 906
+[2023-07-06 14:52:22,684] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 54, in index
+    cursor.execute(classesquery, (batchid,))
+UnboundLocalError: local variable 'batchid' referenced before assignment
+[2023-07-06 14:52:26,249] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 54, in index
+    cursor.execute(classesquery, (batchid,))
+UnboundLocalError: local variable 'batchid' referenced before assignment
+[2023-07-06 14:52:37,932] ERROR in app: Exception on / [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 2529, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ec2-user/VideoStore_1/app.py", line 54, in index
+    cursor.execute(classesquery, (batchid,))
+UnboundLocalError: local variable 'batchid' referenced before assignment
+[2023-07-06 14:52:44 +0000] [901] [INFO] Handling signal: int
+[2023-07-06 14:52:45 +0000] [901] [INFO] Shutting down: Master

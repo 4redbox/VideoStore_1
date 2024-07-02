@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Trainer Dashboard</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        .background-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background-image: url('/static/images/background.png'); */
+            background-color: black;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            filter: blur(5px) opacity(0.5);
+            z-index: -1;
+        }
+
+        .dashboard-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        #options {
+            margin-bottom: 10px;
+        }
+
+        .section {
+            display: none;
+        }
+
+        footer {
+            background-color: #007BFF;
+            color: #FFF;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            /* Remove the "position: absolute;" property */
+            /* Keep the "width: 100%;" and "text-align: center;" properties */
+            opacity: 70%;
+            /* You can adjust the opacity as needed */
+        }
+
+        footer a {
+            color: #FFF;
+            text-decoration: none;
+            margin: 5px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="background-container"></div>
+    <div class="dashboard-container">
+        <h1>Welcome Trainer!</h1>
+        <a href="/trainersignout" class="signout-button">Sign out</a>
+        <p>Please choose an option:</p>
+        <form>
+            <label for="options">Select an option:</label>
+            <select id="options" onchange="showOptions()">
+                <option value="">Select an option</option>
+                <option value="upload_video">Upload Video</option>
+                <option value="add_student">Add Student</option>
+                <option value="add_batch">Add Batch</option>
+            </select>
+
+            <div id="upload_video_section" class="section">
+                <label for="video_upload">Choose a video to upload:</label>
+                <input type="file" id="video_upload" name="video_upload">
+                <button type="button" onclick="uploadVideo()">Upload</button>
+            </div>
+
+            <div id="add_student_section" class="section">
+                <label for="student_name">Student Name:</label>
+                <input type="text" id="student_name" name="student_name">
+                <label for="batch_name">Batch Name:</label>
+                <input type="text" id="batch_name" name="batch_name">
+                <button type="button" onclick="addStudent()">Add Student</button>
+            </div>
+
+            <div id="add_batch_section" class="section">
+                <label for="batch_id">Batch ID:</label>
+                <input type="text" id="batch_id" name="batch_id">
+                <label for="batch_name">Batch Name:</label>
+                <input type="text" id="batch_name" name="batch_name">
+                <label for="batch_desc">Batch Desc:</label>
+                <input type="text" id="batch_desc" name="batch_desc">
+                <button type="button" onclick="addBatch()">Add Batch</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        &copy; 2023 BlackGarden Technologies. All rights reserved.
+        <br>
+        <a href="https://www.instagram.com/blackgarden.tech/" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>
+        <a href="https://wa.me/919003662636" target="_blank">WhatsApp</a>
+    </footer>
+    <script>
+        function showOptions() {
+            const selectedOption = document.getElementById("options").value;
+            const sections = document.querySelectorAll(".section");
+
+            sections.forEach(section => {
+                section.style.display = "none";
+            });
+
+            if (selectedOption) {
+                document.getElementById(`${selectedOption}_section`).style.display = "block";
+            }
+        }
+
+        // Add your functions for uploadVideo(), addStudent(), and addBatch() here.
+        // These functions will handle the logic for each option.
+        function uploadVideo() {
+            // Implement your video upload functionality here
+            //alert("Video upload functionality will be implemented here.");
+        }
+
+        function addStudent() {
+            // Implement your add student functionality here
+            const studentName = document.getElementById("student_name").value;
+            const batchName = document.getElementById("batch_name").value;
+            alert("Student Name: " + studentName + "\nBatch Name: " + batchName);
+        }
+
+        function addBatch() {
+            // Implement your add batch functionality here
+            const batchName = document.getElementById("batch_name").value;
+            const batchID = document.getElementById("batch_id").value;
+            const batchDesc = document.getElementById("batch_desc").value;
+            alert("Batch ID: " + batchID + "\nBatch Name: " + batchName + "\nBatch Desc: " + batchDesc);
+        }
+    </script>
+</body>
+</html>

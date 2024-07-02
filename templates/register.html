@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AWS DevOps Training</title>
+<!-- Add Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+
+body, html {
+height: 100%;
+margin: 0;
+background-color: black;
+color: white;
+font-family: Arial, sans-serif;
+line-height: 1.6;
+padding: 0;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+}
+
+header {
+background-color: rgba(0, 123, 255, 0.7);
+/* Blue background with 70% opacity */
+color: #FFF;
+padding: 15px;
+width: 100%;
+top: 0;
+position: absolute;
+z-index: 1;
+}
+
+.header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+}
+
+.header {
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+    z-index: 1;
+}
+
+.header ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.header li {
+    margin: 0 15px;
+    display: block;
+    /* Change display to block */
+}
+
+.header li a {
+    text-decoration: none;
+    color: #FFF;
+    font-size: 12px;
+    padding: 10px;
+    border-style: inset;
+}
+
+.wrapper {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+margin-top: 80px; /* Add margin to create a gap */
+}
+
+.container {
+text-align: center;
+border: 1px solid #ccc;
+padding: 20px;
+width: 400px;
+margin-top: 120px;
+margin-bottom: 40px;
+}
+
+.form-group {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+label {
+width: 40%;
+}
+
+input[type="text"], input[type="tel"], input[type="email"] {
+width: 50%;
+}
+
+label, input, select {
+margin-bottom: 15px;
+}
+
+.experience-options {
+display: flex;
+flex-direction: row;
+align-items: center;
+}
+
+#fresher {
+margin-left: 40px; /* Add margin to the "Fresher" radio button */
+}
+
+#experienced {
+margin-left: 40px;
+}
+
+.experience-options input {
+margin-right: 10px; /* Add some spacing between radio buttons */
+}
+
+#experienceDropdown {
+display: none;
+}
+
+#experienced:checked ~ #experienceDropdown {
+display: block;
+}
+
+/* Increase the size of radio buttons */
+.experience-options input[type="radio"] {
+transform: scale(2.5); /* You can adjust the scale factor to change the size */
+margin-right: 25px;
+}
+
+footer {
+    background-color: #007BFF;
+    color: #FFF;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    position: relative; /* Change to "fixed" */
+    bottom: 0;
+    opacity: 0.7;
+    z-index: 2;
+}
+
+footer a {
+    color: #FFF;
+    text-decoration: none;
+    margin: 5px;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+header {
+padding: 60px;
+font-size: 40px;
+}
+
+.header {
+width: 75%;
+}
+
+.header h1 {
+white-space: nowrap;
+}
+
+.header li a {
+    text-decoration: none;
+    color: #FFF;
+    font-size: 25px;
+    padding: 15px;
+    white-space: nowrap;
+    border-style: inset;
+}
+
+.header ul {
+    list-style-type: none;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+}
+
+.container {
+font-size: 40px;
+text-align: center;
+border: 3px solid #ccc;
+padding: 80px;
+width: 100%;
+margin-top: 60%;
+margin-bottom: 20px;
+}
+
+.footer {
+font-size: 90px;
+}
+}
+
+</style>
+</head>
+<body>
+<header class="header">
+<div class="header-content">
+<h1>BlackGarden Technologies</h1>
+<nav>
+    <ul>
+        <li><a href="/signin" id="home-link">Home</a></li>
+        <li><a href="/signin" id="about-link">About Me</a></li>
+        <li><a href="/signin" id="courses-link">Courses</a></li>
+        <li><a href="/blog" id="blog-link">Blog</a></li>
+        <li><a href="/signin" id="contact-link">Contact</a></li>
+    </ul>
+</nav>
+</div>
+</header>
+<div class="wrapper">
+<div class="container">
+<h1>Register for Demo Session</h1>
+<form id="registrationForm">
+<div class="form-group">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+</div>
+
+<div class="form-group">
+  <label for="phone">Phone Number:</label>
+  <input type="tel" id="phone" name="phone">
+</div>
+
+<div class="form-group">
+  <label for="email">Email ID:</label>
+  <input type="email" id="email" name="email">
+</div>
+<div class="experience-options">
+  <input type="radio" id="fresher" name="experience" value="fresher"> Fresher
+  <input type="radio" id="experienced" name="experience" value="experienced"> Experienced
+</div>
+<div id="experienceDropdown" style="display: none;">
+  <label for="years">Years of Experience:</label>
+  <select id="years" name="years">
+    <option value="" disabled selected>Select no of years</option> <!-- Default message -->
+    <option value="1">Less than 1 year</option>
+    <option value="3">Less than 3 years</option>
+    <option value="5+">5+ years</option>
+  </select>
+</div>
+
+<input type="submit" value="Register">
+</form>
+</div>
+<footer>
+&copy; 2023 BlackGarden Technologies. All rights reserved.
+<br>
+<a href="https://www.instagram.com/blackgarden.tech/" target="_blank">Instagram</a>
+<a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>
+<a href="https://wa.me/919043921136" target="_blank">WhatsApp</a>
+</footer>
+</div>
+
+<!-- Add Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+// Your JavaScript code here
+const experiencedRadio = document.getElementById("experienced");
+const dropdown = document.getElementById("experienceDropdown");
+const form = document.getElementById("registrationForm");
+
+// Show dropdown for experienced
+experiencedRadio.addEventListener("change", function() {
+dropdown.style.display = "block";
+});
+
+// Hide dropdown for fresher
+const fresherRadio = document.getElementById("fresher");
+fresherRadio.addEventListener("change", function() {
+dropdown.style.display = "none";
+});
+
+// Handle form submission
+form.addEventListener("submit", function(event) {
+event.preventDefault();
+
+const formData = new FormData(form);
+const jsonData = {};
+formData.forEach((value, key) => {
+  jsonData[key] = value;
+});
+
+fetch('/register', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(jsonData),
+})
+.then(response => {
+  if (response.status === 400) {
+    return response.json().then(data => alert(data.message));  // Will show 'Already registered'
+  } else {
+    alert('Thanks for registering');
+  }
+});
+});
+});
+</script>
+</body>
+</html>

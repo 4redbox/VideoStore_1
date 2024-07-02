@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>CloudTech Training</title>
+    <title>BlackGarden Tech Training</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
             margin: 0;
@@ -11,10 +13,6 @@
             min-height: 100vh;
             flex-direction: column;
             position: relative;
-            background-image: url('/static/images/background.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
         }
 
         .header {
@@ -25,15 +23,26 @@
             background-color: #f2f2f2;
             text-align: center;
             padding: 20px;
-            z-index: 1; /* Ensure the header is above the overlay */
+            z-index: 1; /* Ensure the header is above the blurred background */
+            transition: top 0.3s; /* Add transition for smooth movement */
+        }
+
+        .header--hidden {
+            top: -100%; /* Move the header off-screen */
         }
 
         .table-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 100px;
-            z-index: 1; /* Ensure the table is above the overlay */
+            margin-top: 180px; /* Adjust margin to move the table below the header */
+            margin-bottom: 80px; /* Add space below the table */
+            z-index: 1; /* Ensure the table is above the blurred background */
+            transition: margin-top 0.3s; /* Add transition for smooth movement */
+        }
+
+        .table-container--header-visible {
+            margin-top: 120px; /* Move the table below the header */
         }
 
         table {
@@ -71,28 +80,56 @@
             margin-top: 2px;
         }
 
-        .overlay {
-            position: absolute;
+        /* Apply the blur effect to the background image */
+        body::before {
+            content: "";
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity to control the fade effect */
-            backdrop-filter: blur(5px); /* Apply the blur effect to the overlay */
-            z-index: 0; /* Place the overlay behind the content */
+            /* background-image: url('/static/images/background.png'); */
+            background-color: black;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            z-index: -1;
+            filter: blur(5px);
         }
+
+        footer {
+            background-color: #007BFF;
+            color: #FFF;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            /* Remove the "position: absolute;" property */
+            /* Keep the "width: 100%;" and "text-align: center;" properties */
+            opacity: 70%;
+            /* You can adjust the opacity as needed */
+        }
+
+        footer a {
+            color: #FFF;
+            text-decoration: none;
+            margin: 5px;
+        }
+        
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>CloudTech Training</h1>
+    <div class="header" id="header">
+        <h1>BlackGarden Tech Training</h1>
         <div class="user-info">
-            Logged in as: {{ session['username'] }}
+            Logged in as: {{ session['username'] }}<br>
+            Batch Name: {{ batchname }}
         </div>
         <a href="/signout" class="signout-button">Sign out</a>
     </div>
 
-    <div class="table-container">
+    <div class="table-container" id="tableContainer">
         <table>
             <tr>
                 <th>Class No</th>
@@ -110,7 +147,10 @@
                     <td>{{ record[3] }}</td>
                     <td>
                         {% if record[4] %}
-                        <a href="{{ record[4] }}" target="_blank"><button class="play-button"></button></a>
+				    <form action="/video_page" method="get" target="_blank">
+				        <input type="hidden" name="url" value="{{ record[4] }}">
+                        <input type="hidden" name="classname" value="{{ record[1] }}">
+                        <button class="play-button" type="submit"></button></form>
                         {% else %}
                             No URL available
                         {% endif %}
@@ -119,5 +159,40 @@
             {% endfor %}
         </table>
     </div>
+    <script>
+        // JavaScript code to show/hide the header and move the table
+        var header = document.getElementById('header');
+        var tableContainer = document.getElementById('tableContainer');
+        var isHeaderVisible = true;
 
-    <div class="overlay"></div> <!-- Add the overlay
+        function showHeader() {
+            header.style.top = '0';
+            tableContainer.style.marginTop = '180px';
+            isHeaderVisible = true;
+        }
+
+        function hideHeader() {
+            header.style.top = '-100%';
+            tableContainer.style.marginTop = '20px';
+            isHeaderVisible = false;
+        }
+
+        function handleMouseMove(event) {
+            if (window.scrollY === 0 && event.clientY <= 10 && !isHeaderVisible) {
+            showHeader();
+        } else if ((window.scrollY > 0 || event.clientY > 150) && isHeaderVisible) {
+            hideHeader();
+        }
+        }
+
+        window.addEventListener('mousemove', handleMouseMove);
+    </script>
+    <footer>
+        &copy; 2023 BlackGarden Technologies. All rights reserved.
+        <br>
+        <a href="https://www.instagram.com/blackgarden.tech/" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>
+        <a href="https://wa.me/919003662636" target="_blank">WhatsApp</a>
+    </footer>
+</body>
+</html>

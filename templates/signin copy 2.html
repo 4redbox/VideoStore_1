@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudTech Training</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: #FFF;
+            padding: 10px;
+            width: 100%;
+            position: absolute;
+            top: 0;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .signin-info {
+            text-align: center;
+            line-height: 0.5;
+            margin-left: auto; /* Move Sign In info to the right */
+        }
+
+        h1 {
+            font-size: 24px;
+            /* margin: 0; */
+            /* margin-bottom: 10px; */
+            /* margin-right: 10px; */
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #007BFF;
+            color: #FFF;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: relative; /* Change to "fixed" */
+            bottom: 0;
+            opacity: 0.7;
+            z-index: 2;
+        }
+
+        footer a {
+            color: #FFF;
+            text-decoration: none;
+            margin: 5px;
+        }
+
+        .syllabus {
+            margin: 20px;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>CloudTech Training</h1>
+        </div>
+        <div class="signin-info">
+            <h2>Sign In</h2>
+            {% if error_message %}
+                <p style="color: red;">{{ error_message }}</p>
+            {% endif %}
+            <form action="/signin" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                
+                <input type="submit" value="Sign In">
+            </form>
+            <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+            <p>Login as <a href="/trainer_page_1">Trainer</a></p>
+        </div>
+    </header>
+
+    <div class="syllabus">
+        <h2>Course Includes</h2>
+        <ul>
+            <li>How to stay up in tech trends</li>
+            <li>Software - What is it? Why is it important?</li>
+            <li>Cloud Computing - A Revolution in Server Management</li>
+            <li>AWS core services with Practice</li>
+            <li>AWS advances with sample projects</li>
+            <li>Get in-depth knowledge on Linux and Linux commands and do shell scripting</li>
+            <li>What is DevOps and Why DevOps + Cloud is a killer combination in the market right now</li>
+            <li>DevOps Tools with practice including Git, GitHub, Jenkins, AWS Pipeline, Docker, Kubernetes, Terraform, and Ansible</li>
+            <li>Certification - How to Crack it the very first time</li>
+            <li>Career Support - How to use social media platforms/ Polished resume/ Build a stand out profile</li>
+        </ul>
+    </div>
+
+    <footer>
+        &copy; 2023 BlackGarden Technologies. All rights reserved.
+        <br>
+        <a href="https://www.instagram.com/blackgarden.tech/" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>
+        <a href="https://wa.me/919003662636" target="_blank">WhatsApp</a>
+    </footer>
+</body>
+</html>
