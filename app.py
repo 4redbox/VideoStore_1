@@ -87,7 +87,7 @@ dynamodb_table_name = 'videos_meta'
 
 # Initialize DynamoDB resource
 dynamodb = boto3.resource('dynamodb', region_name='ap-south-1')
-table_name = 'reg_table'
+table_name = 'register_table'
 regtable = dynamodb.Table(table_name)
 
 # Amazon Cognito configuration
