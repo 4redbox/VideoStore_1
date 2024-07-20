@@ -215,8 +215,11 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => {
             if (response.status === 400) {
                 return response.json().then(data => alert(data.message));  // Will show 'Already registered'
-            } else {
+            } else if (response.status === 200) {
                 alert('Thanks for registering');
+                window.close(); // This will attempt to close the tab
+            } else {
+                return response.json().then(data => alert(data.message));
             }
         });
     });
