@@ -351,14 +351,14 @@ def registration():
 def register():
     data = request.get_json()
     name = data.get('name')
-    phone = data.get('phone')
+    Phone = data.get('Phone')
     email = data.get('email')
     experience = data.get('experience')
 
     # Register the user
     regtable.put_item(Item={
             'name': name,
-            'phone': phone,
+            'Phone': Phone,
             'email': email,
             'experience': experience
     })
