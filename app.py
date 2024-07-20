@@ -339,7 +339,7 @@ def signup():
     return render_template('signup.html')
 
 @app.route('/registration')
-def index():
+def registration():
     return render_template('register.html')  # Ensure 'index.html' matches the HTML file name
 
 @app.route('/register', methods=['POST'])
