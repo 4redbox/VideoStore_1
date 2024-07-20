@@ -338,6 +338,29 @@ def signup():
 
     return render_template('signup.html')
 
+@app.route('/registration')
+def index():
+    return render_template('register.html')  # Ensure 'index.html' matches the HTML file name
+
+@app.route('/register', methods=['POST'])
+def register():
+    data = request.get_json()
+    name = data.get('name')
+    phone = data.get('phone')
+    email = data.get('email')
+    experience = data.get('experience')
+
+    # Register the user
+    try:
+        table.put_item(Item={
+            'name': name,
+            'phone': phone,
+            'email': email,
+            'experience': experience
+        })
+        return jsonify({'message': 'Thanks for registering'}), 200
+    except (NoCredentialsError, PartialCredentialsError):
+        return jsonify({'message': 'Registration failed. Please try again later.'}), 500
 
 @app.route('/trainersignup', methods=['GET', 'POST'])
 def trainersignup():
