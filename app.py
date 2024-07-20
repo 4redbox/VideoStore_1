@@ -363,7 +363,7 @@ def register():
             'experience': experience
     })
     
-    # return jsonify({'message': 'Thanks for registering'}), 200
+    return jsonify({'message': 'Thanks for registering'}), 200
 
 @app.route('/trainersignup', methods=['GET', 'POST'])
 def trainersignup():

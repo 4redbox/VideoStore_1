@@ -192,38 +192,37 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("registrationForm");
-
-    // Handle form submission
-    form.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const formData = new FormData(form);
-        const jsonData = {};
-        formData.forEach((value, key) => {
-            jsonData[key] = value;
-        });
-
-        fetch('/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(jsonData),
-        })
-        .then(response => {
-            if (response.status === 400) {
-                return response.json().then(data => alert(data.message));  // Will show 'Already registered'
-            } else if (response.status === 200) {
-                alert('Thanks for registering');
-                window.close(); // This will attempt to close the tab
-            } else {
-                return response.json().then(data => alert(data.message));
-            }
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.getElementById("registrationForm");
+    
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+    
+            const formData = new FormData(form);
+            const jsonData = {};
+            formData.forEach((value, key) => {
+                jsonData[key] = value;
+            });
+    
+            fetch('/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(jsonData),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Registration successful') {
+                    alert('Thanks for registering');
+                    window.close();  // Close the current tab
+                } else {
+                    alert(data.message || 'An error occurred');
+                }
+            })
         });
     });
-});
-</script>
+    </script>
+    
 </body>
 </html>
