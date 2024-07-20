@@ -356,16 +356,14 @@ def register():
     experience = data.get('experience')
 
     # Register the user
-    try:
-        regtable.put_item(Item={
+    regtable.put_item(Item={
             'name': name,
             'phone': phone,
             'email': email,
             'experience': experience
-        })
-        return jsonify({'message': 'Thanks for registering'}), 200
-    except (NoCredentialsError, PartialCredentialsError):
-        return jsonify({'message': 'Registration failed. Please try again later.'}), 500
+    })
+    
+    return jsonify({'message': 'Thanks for registering'}), 200
 
 @app.route('/trainersignup', methods=['GET', 'POST'])
 def trainersignup():
