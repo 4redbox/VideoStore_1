@@ -214,9 +214,8 @@
             .then(response => response.json())
             .then(data => {
                 if (data.message === 'Registration successful') {
-                    alert('Thanks for registering');
-                    if (confirm("Ok")) {
-                        window.close();  // Close the current tab
+                    alert("ok");
+                    window.close();
                     }
                 } else {
                     alert(data.message || 'An error occurred');
