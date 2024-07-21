@@ -213,12 +213,9 @@
             })
             .then(response => response.json())
             .then(data => {
-                if (data.message === 'Registration successful') {
-                    alert("ok");
-                    close();
-                    }
-                } else {
-                    alert(data.message || 'An error occurred');
+                if (data.message === 'Thanks for registering') {
+                    alert('Thanks for registering');
+                    window.close();  // Close the current tab
                 }
             })
         });
