@@ -213,6 +213,7 @@
             })
             .then(response => response.json())
             .then(data => {
+                console.log(data.message);  // Log the response message to the browser console
                 if (data.message === 'Thanks for registering') {
                     alert('Thanks for registering');
                     close();  // Close the current tab
