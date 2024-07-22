@@ -82,8 +82,13 @@ aws_secret = aws_credentials['aws_secret_access_key']
 pool_id = aws_credentials['COGNITO_USER_POOL_ID']
 client_id = aws_credentials['COGNITO_CLIENT_ID']
 
-dynamodb = boto3.resource('dynamodb', region_name='ap-south-1')
+# Initialize DynamoDB resource
+
+dynamodb = boto3.client('dynamodb', region_name='ap-south-1')
 dynamodb_table_name = 'videos_meta'
+
+table_name = 'reg_table'
+regtable = dynamodb.Table(table_name)
 
 # Amazon Cognito configuration
 COGNITO_USER_POOL_ID = pool_id
@@ -341,11 +346,6 @@ def signup():
 @app.route('/registration')
 def registration():
     return render_template('register.html')  # Ensure 'index.html' matches the HTML file name
-
-# Initialize DynamoDB resource
-dynamodb1 = boto3.resource('dynamodb', region_name='ap-south-1')
-table_name = 'reg_table'
-regtable = dynamodb1.Table(table_name)
 
 @app.route('/register', methods=['POST'])
 
