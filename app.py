@@ -84,7 +84,8 @@ client_id = aws_credentials['COGNITO_CLIENT_ID']
 
 # Initialize DynamoDB resource
 
-dynamodb = boto3.client('dynamodb', region_name='ap-south-1')
+dynamodb = boto3.resource('dynamodb', region_name=region)
+dynamodb_client = boto3.client('dynamodb', region_name=region)
 
 table_name = 'reg_table'
 regtable = dynamodb.Table(table_name)
