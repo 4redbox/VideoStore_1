@@ -82,7 +82,7 @@ aws_secret = aws_credentials['aws_secret_access_key']
 pool_id = aws_credentials['COGNITO_USER_POOL_ID']
 client_id = aws_credentials['COGNITO_CLIENT_ID']
 
-dynamodb = boto3.client('dynamodb', region_name='ap-south-1')
+dynamodb = boto3.resource('dynamodb', region_name='ap-south-1')
 dynamodb_table_name = 'videos_meta'
 
 # Amazon Cognito configuration
