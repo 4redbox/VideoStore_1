@@ -66,7 +66,7 @@ def get_aws_secret_2():
 
 def select_records_from_dynamodb(query_expression):
     try:
-        response = dynamodb.execute_statement(
+        response = dynamodb_client.execute_statement(
             Statement=query_expression
         )
         items = response.get('Items', [])
@@ -231,7 +231,7 @@ def index():
         {"S": studentname}
     ]
 
-    batchdetails = dynamodb.execute_statement(
+    batchdetails = dynamodb_client.execute_statement(
         Statement=batch_query,
         Parameters=batch_query_params
     )
@@ -258,7 +258,7 @@ def index():
             {"S": batchid}
             ]
 
-            tabledetails = dynamodb.execute_statement(
+            tabledetails = dynamodb_client.execute_statement(
             Statement=query,
             Parameters=batch_query_params_b
             )
