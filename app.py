@@ -492,7 +492,7 @@ def blog_post_1():
 
 @app.route('/How-AI-Can-Affordably-Help-Small-Businesses-Achieve-Big-Things')
 def blog_post_2():
-    return render_template("/blog_posts/ Gen_AI_For_Small_Business.html")
+    return render_template("/blog_posts/Gen_AI_For_Small_Business.html")
 
 @app.route('/signout')
 def signout():
