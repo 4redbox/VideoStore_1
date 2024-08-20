@@ -486,7 +486,7 @@ def trainersignout():
 def blog():
     return render_template("blog.html")
 
-@app.route('/Building-a-Two-Way-Data-Sync')
+@app.route('/blogs/Building-a-Two-Way-Data-Sync')
 def blog_post_1():
     return render_template("/blogs/Building_a_Two_Way_Data_Sync.html")
 
