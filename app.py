@@ -488,13 +488,13 @@ def blog():
 
 @app.route('/Building-a-Two-Way-Data-Sync')
 def blog_post_1():
-    return render_template("/blog_posts/Building_a_Two_Way_Data_Sync.html")
+    return render_template("/blogs/Building_a_Two_Way_Data_Sync.html")
 
 @app.route('/How-AI-Can-Affordably-Help-Small-Businesses-Achieve-Big-Things')
 def blog_post_2():
-    return render_template("/blog_posts/Gen_AI_For_Small_Business.html")
+    return render_template("/blogs/Gen_AI_For_Small_Business.html")
 
-@app.route('/Sync-vs-Async')
+@app.route('/blogs/Sync-vs-Async')
 def blog_post_3():
     return render_template("/blog_posts/Sync_vs_Async.html")
 
