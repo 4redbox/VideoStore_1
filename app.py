@@ -490,13 +490,13 @@ def blog():
 def blog_post_1():
     return render_template("/blogs/Building_a_Two_Way_Data_Sync.html")
 
-@app.route('/How-AI-Can-Affordably-Help-Small-Businesses-Achieve-Big-Things')
+@app.route('/blogs/How-AI-Can-Affordably-Help-Small-Businesses-Achieve-Big-Things')
 def blog_post_2():
     return render_template("/blogs/Gen_AI_For_Small_Business.html")
 
 @app.route('/blogs/Sync-vs-Async')
 def blog_post_3():
-    return render_template("/blog_posts/Sync_vs_Async.html")
+    return render_template("/blogs/Sync_vs_Async.html")
 
 @app.route('/signout')
 def signout():
