@@ -494,6 +494,10 @@ def blog_post_1():
 def blog_post_2():
     return render_template("/blog_posts/Gen_AI_For_Small_Business.html")
 
+@app.route('/Sync-vs-Async')
+def blog_post_3():
+    return render_template("/blog_posts/Sync_vs_Async.html")
+
 @app.route('/signout')
 def signout():
     session.pop('username', None)  # Remove username from the session
