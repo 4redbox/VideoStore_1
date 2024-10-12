@@ -498,6 +498,10 @@ def blog_post_2():
 def blog_post_3():
     return render_template("/blogs/Sync_vs_Async.html")
 
+@app.route('/blogs/Staying-Ahead')
+def blog_post_4():
+    return render_template("/blogs/Staying-Ahead.html")
+
 @app.route('/signout')
 def signout():
     session.pop('username', None)  # Remove username from the session
