@@ -500,7 +500,7 @@ def blog_post_3():
 
 @app.route('/blogs/Staying-Ahead')
 def blog_post_4():
-    return render_template("/blogs/Staying-Ahead.html")
+    return render_template("/blogs/Staying_Ahead.html")
 
 @app.route('/signout')
 def signout():
