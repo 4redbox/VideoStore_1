@@ -13,7 +13,35 @@ sslify = SSLify(app)
 region = 'ap-south-1'
 logger.add("app.log", rotation="10 MB")
 s3_signed_url = ''
-print ("s3_signed_url: ",s3_signed_url, flush=True)
+
+secret_aws_credentials = get_aws_secret()
+aws_credentials = json.loads(secret_aws_credentials)
+aws_access = aws_credentials['aws_access_key_id']
+aws_secret = aws_credentials['aws_secret_access_key']
+pool_id = aws_credentials['COGNITO_USER_POOL_ID']
+client_id = aws_credentials['COGNITO_CLIENT_ID']
+
+# Initialize DynamoDB resource
+
+dynamodb = boto3.resource('dynamodb', region_name=region)
+dynamodb_client = boto3.client('dynamodb', region_name=region)
+
+table_name = 'reg_table'
+regtable = dynamodb.Table(table_name)
+
+# Amazon Cognito configuration
+COGNITO_USER_POOL_ID = pool_id
+COGNITO_CLIENT_ID = client_id
+print("pool_id_1: ", pool_id)
+
+cognito_client = boto3.client('cognito-idp', region_name=region)
+print('cognito_client: ', cognito_client)
+
+# Global variable to store authenticated user token
+authenticated_user_token = None
+
+# Set a secret key for session management
+app.secret_key = 'your_secret_key'
 
 def get_aws_secret():
 
@@ -37,6 +65,8 @@ def get_aws_secret():
     
     # Decrypts secret using the associated KMS key.
     secret1 = get_secret_value_response['SecretString']
+    print("secret1: ", secret1)
+
     return secret1
 
 def get_aws_secret_2():
@@ -75,49 +105,6 @@ def select_records_from_dynamodb(query_expression):
         print("Error selecting records:", e)
         return []
 
-secret_aws_credentials = get_aws_secret()
-aws_credentials = json.loads(secret_aws_credentials)
-aws_access = aws_credentials['aws_access_key_id']
-aws_secret = aws_credentials['aws_secret_access_key']
-pool_id = aws_credentials['COGNITO_USER_POOL_ID']
-client_id = aws_credentials['COGNITO_CLIENT_ID']
-
-# Initialize DynamoDB resource
-
-dynamodb = boto3.resource('dynamodb', region_name=region)
-dynamodb_client = boto3.client('dynamodb', region_name=region)
-
-table_name = 'reg_table'
-regtable = dynamodb.Table(table_name)
-
-# Amazon Cognito configuration
-COGNITO_USER_POOL_ID = pool_id
-COGNITO_CLIENT_ID = client_id
-print("pool_id_1: ", pool_id)
-
-cognito_client = boto3.client('cognito-idp', region_name=region)
-print('cognito_client: ', cognito_client)
-
-"""
-secret_aws_credentials_2 = get_aws_secret_2()
-aws_credentials_2 = json.loads(secret_aws_credentials_2)
-pool_id_2 = aws_credentials_2['COGNITO_USER_POOL_ID']
-client_id_2 = aws_credentials_2['COGNITO_CLIENT_ID']
-
-# Amazon Cognito configuration
-COGNITO_USER_POOL_ID = pool_id_2
-COGNITO_CLIENT_ID = client_id_2
-
-print("pool_id_2: ", pool_id_2)
-cognito_client_2 = boto3.client('cognito-idp', region_name=region)
-print('cognito_client_2: ', cognito_client_2)
-"""
-
-# Global variable to store authenticated user token
-authenticated_user_token = None
-
-# Set a secret key for session management
-app.secret_key = 'your_secret_key'
 
 def get_rds_secret():
 
@@ -154,72 +141,8 @@ def get_rds_secret():
 
 def index():
   
-    """
-    ##### Code to display user's IP Address ######
-    if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
-        client_ip = request.environ['REMOTE_ADDR']
-    else:
-        client_ip = request.environ['HTTP_X_FORWARDED_FOR'] # if behind a proxy
-    if session.get('username') != None:
-        logger.info("User " + str(session.get('username')) + " is accessing from: " + str(client_ip))
-    """
-
     if 'username' not in session:
         return redirect('/signin')
-
-    # Connect to MySQL database
-    """
-    secret_credentials = get_rds_secret()
-    credentials = json.loads(secret_credentials)
-    rds_host = credentials['host']
-    database_name = credentials['database']
-    rds_username = credentials['username']
-    rds_password = credentials['password']
-
-    conn = mysql.connector.connect(
-        host=rds_host,
-        port=3306,
-        user=rds_username,
-        password=rds_password,
-        database=database_name
-    )    
-    cursor = conn.cursor()
-    # Query to retrieve records from the database
-    batchquery = "SELECT b.Batch_Name,b.Batch_id FROM students a,batch b WHERE a.Batch_id = b.Batch_id and a.Sutdent_User_Name = %s"
-    cursor.execute(batchquery, (studentname,))
-    batchdetails = cursor.fetchall()
-    #print("batchdetails: ",batchdetails)
-
-    if batchdetails:
-
-        for batchdetail in batchdetails:
-            batchname = batchdetail[0]
-            batchid   = batchdetail[1]
-    else:
-            batchname = ''
-            batchid   = ''
-
-    payment_query = "SELECT Course_Payment FROM students WHERE Sutdent_User_Name = %s"
-    cursor.execute(payment_query, (studentname,))
-    payment_details = cursor.fetchone()
-    if payment_details:
-        course_payment = payment_details[0]
-    else:
-        course_payment = 'No'
-
-    classesquery = "SELECT class_no, class_name, date_taken, class_By, url FROM videos_meta where Batch_id = %s"
-
-    # Check if the payment course is 'No' and print only 4 videos
-    if course_payment == 'No':
-        classesquery += " LIMIT 4"
-    cursor.execute(classesquery, (batchid,))
-    records = cursor.fetchall()
-    #print("records: ",records)
-    
-    # Close the connection
-    cursor.close()
-    conn.close()
-    """
 
     studentname = session.get('username')
     print("before first query")
