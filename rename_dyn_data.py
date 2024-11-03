@@ -2,7 +2,7 @@ import boto3
 
 # Initialize DynamoDB client
 dynamodb = boto3.resource('dynamodb')
-table_name = 'YourTableName'  # Replace with your DynamoDB table name
+table_name = 'videos_meta'  # Replace with your DynamoDB table name
 table = dynamodb.Table(table_name)
 
 # Old and new URL patterns
