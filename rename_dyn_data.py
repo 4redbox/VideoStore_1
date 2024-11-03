@@ -10,7 +10,7 @@ old_url_base = "https://cloudtechvideoserver-001a.s3.ap-south-1.amazonaws.com/Te
 new_url_base = "https://videostore-bgtech-server-01.s3.ap-south-1.amazonaws.com/main-video/"
 
 # Scan all records in the table
-response = table.scan(Limit=10)
+response = table.scan()
 items = response['Items']
 
 # Loop through each item to find and replace the URL
