@@ -14,35 +14,6 @@ region = 'ap-south-1'
 logger.add("app.log", rotation="10 MB")
 s3_signed_url = ''
 
-secret_aws_credentials = get_aws_secret()
-aws_credentials = json.loads(secret_aws_credentials)
-aws_access = aws_credentials['aws_access_key_id']
-aws_secret = aws_credentials['aws_secret_access_key']
-pool_id = aws_credentials['COGNITO_USER_POOL_ID']
-client_id = aws_credentials['COGNITO_CLIENT_ID']
-
-# Initialize DynamoDB resource
-
-dynamodb = boto3.resource('dynamodb', region_name=region)
-dynamodb_client = boto3.client('dynamodb', region_name=region)
-
-table_name = 'reg_table'
-regtable = dynamodb.Table(table_name)
-
-# Amazon Cognito configuration
-COGNITO_USER_POOL_ID = pool_id
-COGNITO_CLIENT_ID = client_id
-print("pool_id_1: ", pool_id)
-
-cognito_client = boto3.client('cognito-idp', region_name=region)
-print('cognito_client: ', cognito_client)
-
-# Global variable to store authenticated user token
-authenticated_user_token = None
-
-# Set a secret key for session management
-app.secret_key = 'your_secret_key'
-
 def get_aws_secret():
 
     secret_name = "aws_secrets"
@@ -135,6 +106,35 @@ def get_rds_secret():
     return secret2
 
 
+
+secret_aws_credentials = get_aws_secret()
+aws_credentials = json.loads(secret_aws_credentials)
+aws_access = aws_credentials['aws_access_key_id']
+aws_secret = aws_credentials['aws_secret_access_key']
+pool_id = aws_credentials['COGNITO_USER_POOL_ID']
+client_id = aws_credentials['COGNITO_CLIENT_ID']
+
+# Initialize DynamoDB resource
+
+dynamodb = boto3.resource('dynamodb', region_name=region)
+dynamodb_client = boto3.client('dynamodb', region_name=region)
+
+table_name = 'reg_table'
+regtable = dynamodb.Table(table_name)
+
+# Amazon Cognito configuration
+COGNITO_USER_POOL_ID = pool_id
+COGNITO_CLIENT_ID = client_id
+print("pool_id_1: ", pool_id)
+
+cognito_client = boto3.client('cognito-idp', region_name=region)
+print('cognito_client: ', cognito_client)
+
+# Global variable to store authenticated user token
+authenticated_user_token = None
+
+# Set a secret key for session management
+app.secret_key = 'your_secret_key'
 
 
 @app.route('/')
