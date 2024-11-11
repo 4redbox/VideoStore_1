@@ -425,6 +425,11 @@ def blog_post_3():
 def blog_post_4():
     return render_template("/blogs/Staying_Ahead.html")
 
+@app.route('/blogs/Gen_AI_Reform_Database_Languages')
+def blog_post_4():
+    return render_template("/blogs/Gen_AI_Reform_Database_Languages.html")
+
+
 @app.route('/signout')
 def signout():
     session.pop('username', None)  # Remove username from the session
