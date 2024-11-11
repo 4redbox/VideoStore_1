@@ -426,7 +426,7 @@ def blog_post_4():
     return render_template("/blogs/Staying_Ahead.html")
 
 @app.route('/blogs/Gen_AI_Reform_Database_Languages')
-def blog_post_4():
+def blog_post_5():
     return render_template("/blogs/Gen_AI_Reform_Database_Languages.html")
 
 
