@@ -429,6 +429,10 @@ def blog_post_4():
 def blog_post_5():
     return render_template("/blogs/Gen_AI_Reform_Database_Languages.html")
 
+@app.route('/blogs/System_Architecture')
+
+def blog_post_6():
+    return render_template("/blogs/System_Architecture.html")
 
 @app.route('/signout')
 def signout():

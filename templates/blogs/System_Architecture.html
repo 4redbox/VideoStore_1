@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackGarden Tech Blog | Learn AWS | Tech Bits</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://bgtech-blog-posts-bkend.s3.ap-south-2.amazonaws.com/favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Staying Ahead: How to Spot Trending Tech for IT Engineers | BlackGarden Tech Blog">
+    <meta property="og:description" content="Practical strategies for IT professionals to stay relevant by leveraging online courses, hands-on projects, certifications, networking, and market insights!">
+    <meta property="og:image" content="https://bgtech-blog-posts-bkend.s3.ap-south-2.amazonaws.com/android-chrome-512x512.png">
+    <meta property="og:url" content="https://blackgardentech.in/blogs/Staying-Ahead">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlackGarden Tech Blog">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        header {
+            background-color: rgba(0, 123, 255, 0.7);
+            /* Blue background with 70% opacity */
+            color: #FFF;
+            padding: 15px;
+            width: 100%;
+            top: 0;
+            position: absolute;
+            z-index: 1;
+        }
+
+        /* Apply the blur effect to the background image */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background-image: url('/static/images/background.png'); */
+            background-color: black;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            z-index: -1;
+            filter: blur(5px);
+        }
+
+        footer {
+            background-color: #007BFF;
+            color: #FFF;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: relative; /* Change to "fixed" */
+            bottom: 0;
+            opacity: 0.7;
+            z-index: 2;
+        }
+
+        footer a {
+            color: #FFF;
+            text-decoration: none;
+            margin: 5px;
+        }
+
+        .blog-header {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: -25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-shadow: 2px 2px #FF9900;
+        }
+
+        .animated-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+            margin-bottom: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .animated-list li {
+            opacity: 0;
+            transform: translateX(100%);
+            position: relative;
+        }
+
+        .animated-list li:nth-child(odd) {
+            animation: slideInFromRight 1s ease-in-out forwards;
+            font-size: 35px;
+        }
+
+        .animated-list li:nth-child(even) {
+            animation: slideInFromLeft 1s ease-in-out forwards;
+            font-size: 35px;
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .header-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+        }
+        
+        h1 {
+            font-size: 42px;
+            text-shadow: 2px 2px #FF9900;
+        }
+
+        h2 {
+            font-size: 50px;
+            font-family: 'Oswald', Arial, sans-serif;
+            color: #FF9900;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px #000000;
+            text-align: center;
+        }
+
+        .post-content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #FFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .post-meta {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .post-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .home-button {
+            margin-top: 2px;
+            text-align: center;
+        }
+
+        .home-button a {
+            margin-top: 8px;
+            display: inline-block;
+            border: 1px solid #FFF;
+            color: #FFF;
+            text-decoration: none;
+            border-radius: 4px;
+            border-style: inset;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>BlackGarden Tech Training</h1>
+            <div class="blog-header">Blog</div>
+            <div class="home-button">
+                <a href="/signin">Home</a> <!-- Adding "Home" button -->
+            </div>
+        </div>
+    </header>
+    <div style="margin-top: 240px;"></div> <!-- Adding space between header and post -->
+    <div class="post-content">
+        <h2 class="post-title">Understanding System Architecture Through Human Emotions</a></h2>
+        <p class="post-meta">Posted by Saravanesh on November 25, 2024</p>
+        <p>When I was a developer, it felt like I was solving puzzles in isolation, unaware of how they fit into the bigger picture. I’d code, test, and deliver without fully grasping how my work impacted the lives of people who used the software. As years passed, I began to see the patterns—like pieces of a story coming together. I realized that understanding the purpose and business need of an application is as crucial as writing the code itself. And what better way to explain this than by drawing parallels with something deeply relatable: human emotions and relationships?</p>
+        <p>Just as humans are a textile of emotions working in harmony, system architecture is a collection of interconnected components working together to create seamless experiences. Let’s break this down, one emotion at a time.</p>
+        <h3>1. Frontend: The Smile You Show the World</h3>
+        <p>Think of the frontend as a person’s expression—the smile, the gestures, the tone of voice. It’s what people see first and how they judge your mood and intentions. For a system, the frontend is the website or app interface. It’s the friendly face of your system, guiding users to what they need while making them feel comfortable and welcome.</p>
+        <p>When a grocery store app makes it easy to browse and shop, it’s like a friend with a warm smile who says, “I’m here for you. Let me help.”</p>
+        <h3>2. Backend: The Heart of the Matter</h3>
+        <p>The backend is the emotional core—the place where thoughts, decisions, and processes originate. Just as your emotions guide your actions, the backend drives the logic of an application. It processes your requests, ensures everything runs smoothly, and communicates with other systems.</p>
+        <p>Imagine placing an order on your grocery app. The backend works like the emotions behind the scenes, ensuring the right responses are triggered: “They’re hungry? Let’s make sure the order is prepared on time.”</p>
+        <h3>3. Database: The Memory That Holds It All</h3>
+        <p>Memories shape who we are. Similarly, the database is the repository of all past experiences for a system—storing customer details, product inventories, and order histories. It’s like the collective memory that helps us learn, grow, and adapt.</p>
+        <p>When you re-order your favorite snack from the grocery store, the database recalls your preferences, like a friend who remembers your coffee order without asking.</p>
+        <h3>4. APIs: The Conversations We Have</h3>
+        <p>APIs are the conversations between systems, just as communication is the lifeline of relationships. They ensure everyone is on the same page, connecting payment gateways, delivery services, and tracking systems.</p>
+        <p>It’s like calling a friend to confirm dinner plans: “Are you ready? Should I pick you up?” APIs keep things moving smoothly, ensuring all parts work in harmony.</p>
+        <h3>5. Load Balancer: Managing Stress with Grace</h3>
+        <p>Life throws challenges at us, and how we manage stress determines our resilience. The load balancer is like emotional regulation—it ensures no part of the system is overwhelmed.</p>
+        <p>Imagine a busy grocery app during festive seasons. The load balancer ensures every server shares the load, much like how a calm mind helps you juggle multiple tasks without losing focus.</p>
+        <h3>6. Cloud: The Capacity to Grow and Adapt</h3>
+        <p>Our capacity to grow, adapt, and expand our horizons mirrors the cloud. Just as we find strength during tough times or grow when faced with challenges, the cloud scales the system to handle increasing demands.</p>
+        <p>During a sale, when thousands of people log in to shop, the cloud expands resources, much like how we tap into reserves of patience and strength when life demands more from us.</p>
+        <h3>7. Security: The Guardrails of Trust</h3>
+        <p>Trust is the foundation of any relationship, just as security is the backbone of any system. It protects personal data, payment details, and sensitive information, ensuring users feel safe and cared for.</p>
+        <p>Think of it as a protective instinct, like when a parent ensures their child crosses the road safely. Security creates a safe environment for users to engage without worry.</p>
+        <h3>8. DevOps: The Caretaker of Relationships</h3>
+        <p>DevOps is like the invisible support system in relationships—the person who keeps things running, fixes issues, and ensures the connection remains strong. It’s the team that releases updates, fixes bugs, and enhances features without disrupting the user experience.</p>
+        <p>In our grocery store analogy, DevOps ensures that the app is always improving—adding faster delivery options or personalizing your experience, just like how effort keeps a relationship alive and thriving.</p>
+        <h3>9. The Big Picture: An Online Grocery Store and Human Life</h3>
+        <p>Bringing it all together is like seeing the connection of human emotions. Every system component works like an emotion or action in a human being, creating a harmonious experience.</p>
+        <p>Let’s take an online grocery store as an example:</p>
+        <ul>
+            <li><b>Frontend:</b>The smile that greets you when you open the app.</li>
+            <li><b>Backend:</b>The heart that processes your needs and makes decisions.</li>
+            <li><b>Database:</b>The memory that recalls your favorite items.</li>
+            <li><b>APIs:</b>The conversations that coordinate between payment, delivery, and tracking.</li>
+            <li><b>Load Balancer:</b>The calm under pressure during a rush hour.</li>
+            <li><b>Cloud:</b>The ability to adapt and grow during busy times.</li>
+            <li><b>Security:</b>The trust that ensures your data is safe.</li>
+            <li><b>DevOps:</b>The ongoing effort to keep improving and maintaining the relationship.</li>
+        </ul>
+        <h3>Conclusion</h3>
+        <p>As developers, when we look beyond the lines of code, we see the bigger picture. Just as emotions make us human, system architecture brings life to applications. Understanding the purpose behind every layer helps us build better systems and create a more profound impact in the real world.</p>
+        <p>So, next time you design or build something, think about the human emotions it mirrors. The more empathy you bring to your code, the better your creations will resonate with the people who use them.</p>
+        <p>Building Better Systems, One Emotion at a Time!</p>
+    </div>
+    <div style="margin-bottom: 40px;"></div> <!-- Adding some space between posts -->
+
+    <footer>
+        &copy; 2024 BlackGarden Technologies. All rights reserved.
+        <br>
+        <a href="https://www.instagram.com/blackgarden.tech/" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>
+        <a href="https://wa.me/919003662636" target="_blank">WhatsApp</a>
+    </footer>
+</body>
+</html>
