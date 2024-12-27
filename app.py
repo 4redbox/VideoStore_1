@@ -450,4 +450,4 @@ def video_page():
         return render_template('video_page.html', s3_url=s3_url,classname=classname,uname=uname)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
