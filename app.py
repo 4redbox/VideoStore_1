@@ -434,6 +434,11 @@ def blog_post_5():
 def blog_post_6():
     return render_template("/blogs/System_Architecture.html")
 
+
+@app.route('/blogs/aws_cost_optimization')
+def blog_post_7():
+    return render_template("/blogs/aws_cost_optimization.html")
+
 @app.route('/signout')
 def signout():
     session.pop('username', None)  # Remove username from the session

@@ -200,48 +200,66 @@
             </div>
         </div>
     </header>
-    <div style="margin-top: 240px;"></div> <!-- Adding space between header and post -->
+    <div style="margin-top: 240px;"></div> <!-- Adding space between header and post -->        
     <div class="post-content">
-        <h2 class="post-title"><a href="/blogs/Cost_Optimization_Hackathon">Cost Optimization Hackathon Project</a></h2>
-        <p class="post-meta">Posted by Saravanesh on January 8, 2025</p>
-        <p>During a recent hackathon, our team developed an exciting cost optimization project designed to identify and reduce cloud expenses while maintaining or enhancing system performance. The event was an intense 5-hour challenge, and I am proud to share that we emerged as winners by delivering an innovative and practical solution within the time frame.</p>
-        
+        <h2 class="post-title"><a href="/blogs/AWS_Cost_Optimization">  Hackathon Event on AWS Cost Optimization</a></h2>
+        <p class="post-meta">Posted by Saravanesh on January 15, 2025</p>
+        <p>Finally, I did it—I attended a hackathon! It had been nearly 8 years since I first urged my friends to join me in one, but somehow it never happened. Since then, I’ve always wanted to push myself into the unknown and see what I could achieve in such an event.</p>
+        <p>The hackathon was organized by BBI, forming random teams of five with a strict 5-hour time limit. We had a few days to connect with our team and build a rapport before the event. The topic was revealed just an hour before the timer began: AWS cost optimization and solving the challenge of idle resources.</p>
+        <p>Fortunately, the topic was right in my comfort zone. We quickly formulated a plan to build a solution that could:</p>
+
+        <ul>
+            <li>Identify Idle Resources</li>
+            <li>Allow Users to Approve Resource Removal or Archiving</li>
+            <li>Automatically Execute Deletion or Archiving Actions</li>
+            <li>Visualize Cost Reductions Dynamically on a Dashboard</li>
+        </ul>
+
+        <p>Each team member took on specific roles to get the project up and running:</p>
+
+        <div class="highlight">
+            <ul>
+                <li>One teammate (tagging them in this LinkedIn post!) worked on the frontend, leveraging Vercel to rapidly deploy a functional UI.</li>
+                <li>Another handled the backend database, ensuring a seamless connection between the frontend and data processing layers.</li>
+                <li>Both ensured that SSO integration kept the application secure and restricted to company personnel.</li>
+                <li>Another teammate focused on building a dashboard that dynamically displayed cost savings and other essential metrics.</li>
+            </ul>
+        </div>
+
+        <p>Meanwhile, I rolled up my sleeves and dived into writing Lambda functions using Python’s Boto3 library. These functions:</p>
+
+        <ul>
+            <li>Detected idle resources and calculated their associated costs.</li>
+            <li>Loaded the data into the database for user review.</li>
+            <li>Captured user-approved resource removals or archival actions and executed the necessary operations.</li>
+        </ul>
+
+        <p>The dashboard was dynamic, updating instantly as approvals came through, providing real-time insights into cost savings.</p>
+        <div style="text-align: center;">
+            <img src="https://bgtech-blog-posts-backend.s3.ap-south-1.amazonaws.com/Blog_Diagram.gif" alt="staying-ahead" style="max-width: 100%; height: auto;">
+        </div>
+
+        <h3>A Test of Creativity and Teamwork</h3>
+        <p>This hackathon was more than just a coding marathon—it tested our creativity, problem-solving, and teamwork. With only 5 hours, we had to think quickly and adapt. Despite the tight constraints, our solution stood out because it was both functional and adaptable across different environments.</p>
+
+        <p>There are many ways to approach cloud cost optimization, and AWS offers robust services for these tasks. However, our solution was designed for rapid deployment, making it ideal for quick implementations, even in high-pressure scenarios like hackathons.</p>
+
+        <p>Our effort paid off—we won! Beyond the victory, this project demonstrated the power of smart cloud strategies to maximize efficiency and business value. It was a reaffirmation of the magic of teamwork and innovation.</p>
+
         <h3>Project Highlights</h3>
         <ul>
-            <li><b>Purpose:</b> To identify inefficiencies in cloud spending and provide actionable insights to reduce unnecessary costs.</li>
-            <li><b>Approach:</b> Leveraging AWS services such as AWS Cost Explorer, S3, and Lambda to analyze and optimize usage.</li>
-            <li><b>Outcome:</b> Successfully demonstrated a 20% reduction in costs for the use case presented at the hackathon, showcasing progress and insights through dynamic dashboards and visualizations.</li>
+            <li><strong>Purpose:</strong> Identify inefficiencies in cloud spending and provide actionable insights for cost reduction.</li>
+            <li><strong>Approach:</strong> Leverage AWS services like AWS Cost Explorer, S3, and Lambda to analyze and optimize cloud usage.</li>
+            <li><strong>Outcome:</strong> Achieved a 20% cost reduction for the presented use case, visualized through dynamic dashboards showing real-time progress and insights.</li>
         </ul>
-        
-        <h3>Key Features of the Tool</h3>
-        <ol>
-            <li>Automated Analysis: The tool automatically identifies underutilized resources and suggests recommendations.</li>
-            <li>Detailed Reporting: Generates reports using cost and usage data from AWS.</li>
-            <li>Custom Rules: Supports custom optimization rules for specific workloads.</li>
-            <li>Dashboard Visualization: Provides a clear and actionable view of the optimization progress through real-time dashboards.</li>
-        </ol>
-    
-        <h3>The Hackathon Experience</h3>
-        <p>This hackathon was not just a coding marathon but also a test of creativity, problem-solving, and teamwork. With only 5 hours on the clock, we had to think on our feet and make quick decisions. Despite the time constraints, our solution stood out because it was not only functional but also adaptable to different environments.</p>
-    
-        <h3>Flexibility and AWS Integration</h3>
-        <p>There are many ways to approach cost optimization, and AWS offers numerous services that can handle similar tasks comprehensively. However, we designed this solution to be built and deployed quickly while remaining adaptable across various environments. This flexibility made it an ideal candidate for quick implementations, even in high-pressure scenarios like hackathons.</p>
-    
-        <h3>Learnings from the Project</h3>
-        <ul>
-            <li>Understanding the intricacies of AWS cost management tools.</li>
-            <li>Developing efficient workflows for real-world cost-saving scenarios.</li>
-            <li>Enhancing collaboration and problem-solving skills during a hackathon.</li>
-            <li>Demonstrating how even a short burst of focused effort can yield impactful results.</li>
-        </ul>
-        <p>This project was not just about cost optimization—it showcased how cloud computing can be leveraged smartly to maximize business value and efficiency. The hackathon victory reaffirmed our belief in the power of innovation and teamwork.</p>
-    
+
         <h3>Repository and Source Code</h3>
-        <p>You can find the source code for this project in the following GitHub repository:</p>
-        <p><a href="https://github.com/your-repo/AWS-Hackathon-Cost-Optimization-Tool" target="_blank">GitHub Repository: AWS Hackathon Cost Optimization Tool</a></p>
-        <p>Feel free to explore the repository, where you'll find detailed instructions on how to set up and use the tool. Contributions and feedback are always welcome!</p>
-        </div>
-        
+        <p>You can find the source code for this project here:</p>
+
+        <p><a href="https://github.com/gitsaravanesh/aws-hackathon-cost-optimization-tool" target="_blank">GitHub Repository: AWS Hackathon Cost Optimization Tool</a></p>
+
+        <p>Feel free to explore the repository, which includes setup instructions and tool usage details. Contributions and feedback are always welcome!</p>
+    </div>    
     <div class="post-content">
         <h2 class="post-title"><a href="/blogs/System_Architecture">Understanding System Architecture Through Human Emotions</a></h2>
         <p class="post-meta">Posted by Saravanesh on November 25, 2024</p>
