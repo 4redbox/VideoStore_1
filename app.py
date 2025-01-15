@@ -437,7 +437,7 @@ def blog_post_6():
 
 @app.route('/blogs/aws_cost_optimization')
 def blog_post_7():
-    return render_template("/blogs/aws_cost_optimization.html")
+    return render_template("/blogs/AWS_Cost_Optimization.html")
 
 @app.route('/signout')
 def signout():
