@@ -439,6 +439,10 @@ def blog_post_6():
 def blog_post_7():
     return render_template("/blogs/AWS_Cost_Optimization.html")
 
+@app.route('/blogs/project_free_tier')
+def blog_post_8():
+    return render_template("/blogs/Project_free_tier.html")
+
 @app.route('/signout')
 def signout():
     session.pop('username', None)  # Remove username from the session

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlackGarden Tech Blog | Learn AWS | Tech Bits</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://bgtech-blog-posts-bkend.s3.ap-south-2.amazonaws.com/favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Hackathon Event on AWS Cost Optimization | BlackGarden Tech Blog">
+    <meta property="og:description" content="Ways to optimze the Cost of AWS with simple implementation!">
+    <meta property="og:description" content="System architecture explained through human emotions and connections!">
+    <meta property="og:image" content="https://bgtech-blog-posts-backend.s3.ap-south-1.amazonaws.com/android-chrome-512x512.png">
+    <meta property="og:url" content="https://blackgardentech.in/blogs/aws_cost_optimization">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="BlackGarden Tech Blog">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        header {
+            background-color: rgba(0, 123, 255, 0.7);
+            /* Blue background with 70% opacity */
+            color: #FFF;
+            padding: 15px;
+            width: 100%;
+            top: 0;
+            position: absolute;
+            z-index: 1;
+        }
+
+        /* Apply the blur effect to the background image */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* background-image: url('/static/images/background.png'); */
+            background-color: black;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            z-index: -1;
+            filter: blur(5px);
+        }
+
+        footer {
+            background-color: #007BFF;
+            color: #FFF;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: relative; /* Change to "fixed" */
+            bottom: 0;
+            opacity: 0.7;
+            z-index: 2;
+        }
+
+        footer a {
+            color: #FFF;
+            text-decoration: none;
+            margin: 5px;
+        }
+
+        .blog-header {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: -25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-shadow: 2px 2px #FF9900;
+        }
+
+        .animated-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 25px;
+            margin-bottom: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .animated-list li {
+            opacity: 0;
+            transform: translateX(100%);
+            position: relative;
+        }
+
+        .animated-list li:nth-child(odd) {
+            animation: slideInFromRight 1s ease-in-out forwards;
+            font-size: 35px;
+        }
+
+        .animated-list li:nth-child(even) {
+            animation: slideInFromLeft 1s ease-in-out forwards;
+            font-size: 35px;
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .header-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+        }
+        
+        h1 {
+            font-size: 42px;
+            text-shadow: 2px 2px #FF9900;
+        }
+
+        h2 {
+            font-size: 50px;
+            font-family: 'Oswald', Arial, sans-serif;
+            color: #FF9900;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px #000000;
+            text-align: center;
+        }
+
+        .post-content {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #FFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .post-meta {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .post-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .home-button {
+            margin-top: 2px;
+            text-align: center;
+        }
+
+        .home-button a {
+            margin-top: 8px;
+            display: inline-block;
+            border: 1px solid #FFF;
+            color: #FFF;
+            text-decoration: none;
+            border-radius: 4px;
+            border-style: inset;
+            font-size: 16px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1>BlackGarden Tech Training</h1>
+            <div class="blog-header">Blog</div>
+            <div class="home-button">
+                <a href="/signin">Home</a> <!-- Adding "Home" button -->
+            </div>
+        </div>
+    </header>
+    <div style="margin-top: 240px;"></div> <!-- Adding space between header and post -->
+    <div class="post-content">
+        <h2 class="post-title">The Battle Against AWS Charges</h2>
+        <p class="post-meta">Posted by Saravanesh on March 21, 2025</p>
+        <p>For many developers, startups, and learners, AWS Free Tier is an excellent way to explore cloud computing without costing anything. It allows users to experiment with Cloud services and build small projects with free resources. However, what starts as an exciting cloud journey often turns into an unexpected billing nightmare.</p>
+        <p>Many users have faced the shock of seeing unexpected charges appear in their billing dashboard, even when they assumed they were well within Free Tier limits. This is because of some unattended resources quietly accumulating costs. Some common culprits in AWS include:</p>
+        <ul>
+            <li>EC2 instances running beyond their intended time, consuming compute hours.</li>
+            <li>Unattached EBS volumes that still incur storage charges.</li>
+            <li>Idle RDS databases silently adding to the monthly bill.</li>
+            <li>Unassociated Elastic IPs sitting idle but generating costs.</li>
+        </ul>
+
+        <p>Forgetting to manually delete these resources is easy, and cloud providers doesn't provide a built-in mechanism to automatically clean up unused resources. So, how can we ensure that we stay within Free Tier limits without constant manual monitoring?</p>
+        <p>I’ve put together a straightforward solution using AWS Lambda and EventBridge to automate the cleanup process, keeping your cloud environment optimized, preventing unexpected charges, and saving time. In this guide, we'll walk through how to set up an effective Free Tier cleanup automation, ensuring no unnecessary costs catch you off guard. With some tweaks, this approach can also be adapted for other cloud platforms as well.</p>
+        <div style="text-align: center;">
+            <img src="https://bgtech-blog-posts-backend.s3.ap-south-1.amazonaws.com/Blog_Diagram_cleanup.gif" alt="staying-ahead" style="max-width: 100%; height: auto;">
+        </div>
+        <p>Also note that AWS Free Tier includes 1 million Lambda requests and 400,000 GB-seconds of compute time per month, so running this cleanup function every 30 minutes will stay well within the free limits. Similarly, Amazon EventBridge offers 1 million free events per month, ensuring that this automation won’t add any unexpected costs.</p>
+        <p>This means you can set up automated cleanups without worrying about charges, keeping your cloud resources optimized while fully leveraging the AWS Free Tier.</p>
+        
+        <h3>Automating Free Tier Cleanup</h3>
+        <ol>
+            <li>Terminate EC2 instances running over 30 minutes – Preventing unnecessary usage.</li>
+            <li>Delete unused EBS volumes – Freeing up space and avoiding storage costs.</li>
+            <li>Release unassociated Elastic IPs – Ensuring no charges for unused resources.</li>
+            <li>Stop idle RDS databases – Avoiding excess charges from inactive databases.</li>
+            <li>Delete old RDS snapshots – Managing storage efficiently.</li>
+        </ol>
+
+        <p><a href="https://github.com/gitsaravanesh/aws-free-tier-clean-up" target="_blank">GitHub Repository: AWS Free Tier Clean Up</a></p>
+
+        <p>Once these scripts are ready, scheduling them to run automatically ensures no manual intervention is required.</p>
+
+        <h3>Scheduling with EventBridge</h3>
+        <p>AWS EventBridge can be used to automate cleanup tasks:</p>
+        <ol>
+            <li>Create a rule named aws-free-tier-cleanup.</li>
+            <li>Set a schedule expression: cron(0 0,6,12,18 * * ? *) to run every 6 hours.</li>
+            <li>Choose Lambda Function as the target.</li>
+            <li>Link it to the respective cleanup functions.</li>
+            <li>Click Create.</li>
+        </ol>
+        <p>With this setup, AWS automatically runs cleanup scripts every 6 hours, ensuring no unused resources accumulate unnecessary costs.</p>
+
+        <h3>The Outcome</h3>
+        <p>With automation in place, unexpected AWS charges become less of a concern. Regular cleanups help maintain an optimized environment within Free Tier limits.</p>
+        <p>To further enhance cost efficiency:</p>
+        <ul>
+            <li>Extend cleanup scripts to manage S3 storage and CloudWatch logs.</li>
+            <li>Send alerts via AWS SNS when resources are deleted.</li>
+            <li>Deploy everything with Terraform for seamless infrastructure management.</li>
+        </ul>
+
+        <p>By implementing these strategies, AWS costs remain predictable and under control, ensuring a smooth experience without billing surprises. The entire setup requires minimal effort and provides long-term savings, making it a valuable addition to any AWS environment.</p>
+    </div>
+    <div style="margin-bottom: 40px;"></div> <!-- Adding some space between posts -->
+
+    <footer>
+        &copy; 2025 BlackGarden Technologies. All rights reserved.
+        <br>
+        <a href="https://www.instagram.com/blackgarden.tech/" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>
+        <a href="https://wa.me/919003662636" target="_blank">WhatsApp</a>
+    </footer>
+</body>
+</html>
