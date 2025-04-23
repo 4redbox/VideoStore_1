@@ -40,7 +40,7 @@ def lambda_handler(event, context):
             with connection.cursor() as cursor:
             # Your select query
             
-                #sql_query = "SELECT * FROM video_storer.videos_meta_test;"
+                #sql_query = "SELECT * FROM video_storer.videos_meta_test; Run this query for testing"
                 sql_query = f"INSERT INTO videos_meta_test (class_no, class_name,batch_id, date_taken, class_by, url) VALUES ('{class_no}', '{class_name_un}', '{batch_id}', '{date_taken}','{class_by}', '{url}');"
                 
                 # Execute the query
