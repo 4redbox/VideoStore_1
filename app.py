@@ -443,6 +443,10 @@ def blog_post_7():
 def blog_post_8():
     return render_template("/blogs/Project_free_tier.html")
 
+@app.route('/blogs/ways_to_build_app')
+def blog_post_9():
+    return render_template("/blogs/Ways_to_build_app.html")
+
 @app.route('/signout')
 def signout():
     session.pop('username', None)  # Remove username from the session
