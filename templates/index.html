@@ -5,8 +5,10 @@
     <!-- Include Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="icon" href="https://bgtech-blog-posts-bkend.s3.ap-south-2.amazonaws.com/favicon.ico" type="image/x-icon">
+
     <style>
         body {
+            font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             display: flex;
             justify-content: center;
@@ -14,6 +16,25 @@
             min-height: 100vh;
             flex-direction: column;
             position: relative;
+            line-height: 1.6;
+            background: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            z-index: -1;
+            filter: blur(5px);
+            opacity: 0.75;
         }
 
         .header {
@@ -21,40 +42,80 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #f2f2f2;
+            background-color: rgba(255,255,255,0.97);
             text-align: center;
             padding: 20px;
-            z-index: 1; /* Ensure the header is above the blurred background */
-            transition: top 0.3s; /* Add transition for smooth movement */
+            z-index: 1;
+            transition: top 0.3s;
+            box-shadow: 0 2px 12px rgba(24,29,56,0.08);
         }
 
         .header--hidden {
-            top: -100%; /* Move the header off-screen */
+            top: -100%;
+        }
+
+        .user-info {
+            color: #181d38;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .signout-button {
+            display: inline-block;
+            border: 1px solid #007bff;
+            color: #007bff;
+            background: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            padding: 8px 18px;
+            font-weight: 500;
+            transition: background 0.2s, color 0.2s;
+            margin-top: 8px;
+        }
+        .signout-button:hover {
+            background: #007bff;
+            color: #fff;
         }
 
         .table-container {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 180px; /* Adjust margin to move the table below the header */
-            margin-bottom: 80px; /* Add space below the table */
-            z-index: 1; /* Ensure the table is above the blurred background */
-            transition: margin-top 0.3s; /* Add transition for smooth movement */
+            margin-top: 180px;
+            margin-bottom: 80px;
+            z-index: 1;
+            transition: margin-top 0.3s;
         }
 
         .table-container--header-visible {
-            margin-top: 120px; /* Move the table below the header */
+            margin-top: 120px;
         }
 
         table {
             border-collapse: collapse;
-            color: white; /* Change text color to white for table headers and cells */
-            font-family: Arial, sans-serif; /* Change the font to a clean and neat font */
+            color: #181d38;
+            font-family: Arial, sans-serif;
+            background-color: rgba(255,255,255,0.97);
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(24,29,56,0.10);
+            overflow: hidden;
         }
 
         th, td {
-            border: 1px solid black;
+            border: 1px solid #007bff;
             padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        td {
+            color: #181d38;
+            background-color: rgba(255,255,255,0.97);
         }
 
         .play-button {
@@ -67,6 +128,7 @@
             border: none;
             outline: none;
             padding: 0;
+            position: relative;
         }
 
         .play-button::before {
@@ -81,35 +143,36 @@
             margin-top: 2px;
         }
 
-        /* Apply the blur effect to the background image */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* background-image: url('/static/images/background.png'); */
-            background-color: black;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            z-index: -1;
-            filter: blur(5px);
+        @media (max-width: 900px) {
+            .table-container {
+                margin: 24px 8px 0 8px;
+            }
+            table {
+                font-size: 0.95rem;
+            }
+        }
+        @media (max-width: 600px) {
+            .header {
+                padding: 10px 0 6px 0;
+            }
+            .table-container {
+                margin: 16px 2px 0 2px;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
         }
 
         footer {
-            background-color: #007BFF;
+            background: #181d38;
             color: #FFF;
             text-align: center;
             padding: 10px;
             width: 100%;
-            position: absolute;
-            bottom: 0;
-            /* Remove the "position: absolute;" property */
-            /* Keep the "width: 100%;" and "text-align: center;" properties */
-            opacity: 70%;
-            /* You can adjust the opacity as needed */
+            position: relative;
+            margin-top: 2rem;
+            font-size: 1rem;
+            opacity: 0.85;
         }
 
         footer a {
@@ -117,12 +180,14 @@
             text-decoration: none;
             margin: 5px;
         }
-        
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="header" id="header">
-        <h1>BlackGarden Tech Training</h1>
+        <h1 style="color:#007bff; font-weight:700; text-shadow:1px 1px #fff;">BlackGarden Tech Training</h1>
         <div class="user-info">
             Logged in as: {{ session['username'] }}<br>
             Batch Name: {{ batchname }}
@@ -148,10 +213,11 @@
                     <td>{{ record[3] }}</td>
                     <td>
                         {% if record[4] %}
-				    <form action="/video_page" method="get" target="_blank">
-				        <input type="hidden" name="url" value="{{ record[4] }}">
-                        <input type="hidden" name="classname" value="{{ record[1] }}">
-                        <button class="play-button" type="submit"></button></form>
+                            <form action="/video_page" method="get" target="_blank">
+                                <input type="hidden" name="url" value="{{ record[4] }}">
+                                <input type="hidden" name="classname" value="{{ record[1] }}">
+                                <button class="play-button" type="submit"></button>
+                            </form>
                         {% else %}
                             No URL available
                         {% endif %}
@@ -180,16 +246,16 @@
 
         function handleMouseMove(event) {
             if (window.scrollY === 0 && event.clientY <= 10 && !isHeaderVisible) {
-            showHeader();
-        } else if ((window.scrollY > 0 || event.clientY > 150) && isHeaderVisible) {
-            hideHeader();
-        }
+                showHeader();
+            } else if ((window.scrollY > 0 || event.clientY > 150) && isHeaderVisible) {
+                hideHeader();
+            }
         }
 
         window.addEventListener('mousemove', handleMouseMove);
     </script>
     <footer>
-        &copy; 2023 BlackGarden Technologies. All rights reserved.
+        &copy; 2025 BlackGarden Technologies. All rights reserved.
         <br>
         <a href="https://www.instagram.com/blackgarden.tech/" target="_blank">Instagram</a>
         <a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>

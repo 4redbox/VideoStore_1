@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6 Ways to Deploy a Simple App on AWS | BlackGarden Tech Blog</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://bgtech-blog-posts-bkend.s3.ap-south-2.amazonaws.com/favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title"       content="6 Ways to Deploy a Simple App on AWS | BlackGarden Tech Blog">
+    <meta property="og:description" content="Pick the path that fits your style and scale up as you go.">
+    <meta property="og:image"       content="https://bgtech-blog-posts-backend.s3.ap-south-1.amazonaws.com/android-chrome-512x512.png">
+    <meta property="og:url"         content="https://blackgardentech.in/blogs/ways_to_build_app">
+    <meta property="og:type"        content="article">
+    <meta property="og:site_name"   content="BlackGarden Tech Blog">
+
+    <!-- Styles -->
+    <style>
+        body{
+            font-family:'Roboto',Arial,sans-serif;
+            line-height:1.6;
+            margin:0;
+            padding:0;
+            min-height:100vh;
+            background:url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background-size:cover;
+            position:relative;
+        }
+        body::before{
+            content:"";
+            position:fixed;
+            top:0;left:0;right:0;bottom:0;
+            background:rgba(24,29,56,.75);
+            z-index:0;
+        }
+        header{
+            background-color:rgba(255,255,255,.97);
+            color:#181d38;
+            padding:18px 0 10px;
+            width:100%;
+            position:sticky;
+            top:0;
+            z-index:2;
+            box-shadow:0 2px 12px rgba(24,29,56,.08);
+        }
+        .header-content{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+        }
+        h1{
+            font-size:2.2rem;
+            font-weight:700;
+            margin:0 0 4px;
+            color:#007bff;
+            text-shadow:1px 1px #fff;
+        }
+        .blog-header{
+            font-size:1.5rem;
+            font-weight:500;
+            color:#181d38;
+            margin-bottom:8px;
+            text-shadow:1px 1px #fff;
+        }
+        .home-button a{
+            display:inline-block;
+            border:1px solid #007bff;
+            color:#007bff;
+            background:#fff;
+            text-decoration:none;
+            border-radius:4px;
+            font-size:16px;
+            padding:8px 18px;
+            font-weight:500;
+            transition:.2s;
+        }
+        .home-button a:hover{background:#007bff;color:#fff;}
+
+        /* Post */
+        .post-content{
+            max-width:800px;
+            margin:40px auto 0;
+            padding:24px 20px;
+            background:rgba(255,255,255,.97);
+            border-radius:12px;
+            box-shadow:0 4px 16px rgba(24,29,56,.10);
+            position:relative;
+            z-index:1;
+        }
+        .post-title{
+            font-size:1.8rem;
+            font-weight:700;
+            margin-bottom:10px;
+            color:#007bff;
+        }
+        .post-meta{
+            color:#777;
+            font-size:.98rem;
+            margin-bottom:18px;
+        }
+        .post-content p,
+        .post-content ul{font-size:1.08rem;color:#181d38;}
+        .post-content ul{margin-left:1.2rem;}
+        blockquote{
+            margin:0 0 18px;
+            padding-left:20px;
+            border-left:4px solid #007bff;
+            font-style:italic;
+            color:#333;
+        }
+        h3{
+            color:#181d38;
+            font-size:1.4rem;
+            margin-top:1.6em;
+            margin-bottom:.6em;
+            font-weight:600;
+        }
+        @media(max-width:900px){
+            .post-content{margin:24px 8px 0;padding:16px 6px;}
+        }
+        @media(max-width:600px){
+            h1{font-size:1.3rem;}
+            .blog-header{font-size:1.1rem;}
+            .post-content{margin:16px 2px 0;padding:10px 2px;}
+        }
+        footer{
+            background:#181d38;
+            color:#fff;
+            text-align:center;
+            padding:1rem 0 .5rem;
+            margin-top:2rem;
+            z-index:1;
+            position:relative;
+        }
+        footer a{color:#fff;margin:0 .5rem;text-decoration:none;}
+        footer a:hover{text-decoration:underline;}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1>BlackGarden Tech Training</h1>
+            <div class="blog-header">Blog</div>
+            <div class="home-button"><a href="/signin">Home</a></div>
+        </div>
+    </header>
+
+    <!-- Post -->
+    <div class="post-content">
+        <h2 class="post-title">6 Ways to Deploy a Simple App on AWS</h2>
+        <p class="post-meta">Posted by Saravanesh on June&nbsp;7,&nbsp;2025</p>
+
+        <p>“Simplicity is the ultimate sophistication.”</p>
+        <p>Real-world apps often look complicated — but that’s only because we’re seeing the end result. What starts as a simple setup grows over time, one feature at a time. Build smart, layer slowly, and before you know it, your app looks "complex" to everyone else.</p>
+        <p>Thanks to AWS, deploying a basic app doesn’t need a battalion of engineers. You can go from zero to live in under an hour. Whether you want total control or prefer to let AWS handle the heavy lifting, there’s a way for you.</p>
+        <p>Let’s look at six practical ways to deploy a simple app on AWS — pick what fits your style and scale up as you grow.</p>
+
+        <h3>1. EC2 – Do It Yourself (Classic Method)</h3>
+        <p>This traditional approach gives you a virtual Linux server in the cloud where you can install and run any type of application manually. For web apps, you can use Nginx or Apache to serve static or dynamic content; for APIs, you might go with Node.js + PM2, or Python3 + Gunicorn + Flask/Django; and for PHP-based applications like WordPress, Apache with PHP-FPM works well.</p>
+        <p>You can also set up databases like PostgreSQL, MySQL, or MongoDB, and use Redis for caching. If you want CI/CD or version control, tools like Jenkins and Docker can be installed. You can even secure your server with Fail2ban, UFW, and Certbot for SSL.</p>
+        <p>This method gives you complete control, ideal for learning cloud infrastructure, working with open-source tools, and building custom setups—but it also means you manage updates, patches, and security manually. Use it if you want flexibility and hands-on experience with the Linux ecosystem on the cloud.</p>
+
+        <h3>2. EC2 with Launch Template + User Data – Semi-Automated Setup</h3>
+        <p>This is an improved version of the EC2 method. Instead of manually logging into each instance and setting it up every time, you can create a template that includes the instance details and a script to automatically install and configure your app when it boots.</p>
+        <p>For example, you can write a script that updates the OS, installs a web server, and writes your app’s homepage. Every time you launch an instance from this template, the setup runs automatically.</p>
+        <p>This is ideal when you need to create the same environment repeatedly, especially for testing or training purposes.</p>
+
+        <h3>3. ECS with Fargate – Serverless Containers</h3>
+        <p>Even though this method requires your application to be containerized, containerizing is now a common and efficient way to package any kind of app—be it a web server, API service, background processor, or even a database—for portability and consistency across environments.</p>
+        <p>Once your app is in a Docker image, ECS with Fargate makes it easy to run without managing any underlying servers. You simply define the container requirements—like CPU, memory, ports, and environment variables—and AWS handles the rest: provisioning, patching, scaling, and high availability. You upload your Docker image to Amazon ECR (Elastic Container Registry), configure a task definition, and deploy. It’s ideal for microservices, APIs, or any app where you want clean separation, easy scaling, and minimal infrastructure overhead.</p>
+        <p>This method is especially useful in production environments or when you're aiming for consistent, reproducible deployments with less operational friction.</p>
+
+        <h3>4. Lambda with API Gateway – Pure Serverless</h3>
+        <p>For lightweight applications or quick backend logic that just needs to respond to events—like processing a contact form, sending an email, resizing an image, or fetching data on request—AWS Lambda is your minimalist powerhouse.</p>
+        <p>You write the function code, upload it (or write inline), and AWS executes it only when triggered. To turn it into a fully functional web API, you hook it up with API Gateway, which gives you REST or HTTP endpoints instantly.</p>
+        <p>For example, you could build a feedback form handler where the frontend sends form data to an API Gateway endpoint, which triggers a Lambda to validate and store the data in DynamoDB—no servers, no idle costs.</p>
+        <p>This combo is perfect for event-driven utilities, micro-backends, or adding modular logic into a larger system. It’s the kind of approach that scales invisibly and keeps your infrastructure footprint almost nonexistent.</p>
+
+        <h3>5. AWS Lightsail – Simplicity First</h3>
+        <p>Lightsail is AWS’s beginner-friendly service. It offers pre-configured virtual machines where you can launch common stacks like WordPress, LAMP, Node.js, or even plain Linux with a few clicks.</p>
+        <p>You don’t need to know about VPCs, subnets, or IAM roles. Just choose a blueprint, pick a plan (with predictable pricing), and launch. It’s like a simplified version of EC2 with built-in networking, firewall, and snapshots.</p>
+        <p>Perfect for small websites, personal blogs, or early MVPs where speed and simplicity matter more than deep configuration.</p>
+
+        <h3>6. AWS Amplify – Fullstack for Frontend Developers</h3>
+        <p>If you’re building a frontend app using React, Vue, or Angular, Amplify offers an all-in-one platform. You can connect your code repository (like GitHub), and Amplify will automatically build, host, and deploy your app every time you push changes.</p>
+        <p>It also provides easy ways to add backend features like authentication, APIs, and storage — all through a CLI tool or visual interface. You don’t need to write backend code unless you want to.</p>
+        <p>This is excellent for solo developers or small teams who want to ship fast without worrying about servers or backend complexity.</p>
+
+        <h3>Final Thoughts</h3>
+        <p>As you can see, there isn’t just one way to deploy a web app on AWS. Each method serves a purpose. Start simple, understand the tools, and evolve based on your app's complexity and scale. Whether you're someone who likes to build everything from scratch or prefers a few clicks and some magic — AWS supports your flow.</p>
+        <p>Even when you're building a small app for practice, it's worth treating it like a real project. Separating code, using Docker, writing a few tests, and adding basic logging not only sharpens your skills but also sets a foundation for scalability. Document everything and design your app as if a team might join you tomorrow. This approach turns tiny projects into portfolio pieces or startup ideas. With the right mindset, tomorrow, it could first Impress a recruiter, then land a client, become a product, and finally turn you into a founder.</p>
+        <p>Practice like you're building the future — because maybe, you are.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 BlackGarden Technologies. All rights reserved.<br>
+        <a href="https://www.instagram.com/blackgarden.tech/"  target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>
+        <a href="https://wa.me/919003662636"                   target="_blank">WhatsApp</a>
+    </footer>
+</body>
+</html>
