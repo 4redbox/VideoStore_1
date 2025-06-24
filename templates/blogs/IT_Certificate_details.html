@@ -3,213 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why IT Certifications Are More Important Than Ever</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="https://bgtech-blog-posts-backend.s3.ap-south-1.amazonaws.com/favicon.ico" tye="image/x-icon">
-    <!-- Open Graph Meta Tags (optional, keep if you want) -->
-    <meta property="og:title" content="Why IT Certifications Are More Important Than Ever">
+    <title>Why IT Certifications Are More Important Than Ever | BlackGarden Tech Blog</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://bgtech-blog-posts-backend.s3.ap-south-1.amazonaws.com/favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title"       content="Why IT Certifications Are More Important Than Ever">
     <meta property="og:description" content="From unknown to unstoppable — certifications are the quiet start of many transformational stories.">
-    <meta property="og:image" content="https://bgtech-blog-posts-backend.s3.ap-south-1.amazonaws.com/android-chrome-512x512.png">
-    <meta property="og:url" content="https://blackgardentech.in/blogs/it_certificate_details">
-    <meta property="og:type" content="article">
-    <meta property="og:site_name" content="BlackGarden Tech Blog">
+    <meta property="og:image"       content="https://bgtech-blog-posts-backend.s3.ap-south-1.amazonaws.com/android-chrome-512x512.png">
+    <meta property="og:url"         content="https://blackgardentech.in/blogs/ways_to_build_app">
+    <meta property="og:type"        content="article">
+    <meta property="og:site_name"   content="BlackGarden Tech Blog">
+
+    <!-- Styles -->
     <style>
-        body {
-            font-family: 'Roboto', Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            background: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
-            background-size: cover;
-            position: relative;
+        body{
+            font-family:'Roboto',Arial,sans-serif;
+            line-height:1.6;
+            margin:0;
+            padding:0;
+            min-height:100vh;
+            background:url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background-size:cover;
+            position:relative;
         }
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(24,29,56,0.75);
-            z-index: 0;
+        body::before{
+            content:"";
+            position:fixed;
+            top:0;left:0;right:0;bottom:0;
+            background:rgba(24,29,56,.75);
+            z-index:0;
         }
-        header {
-            background-color: rgba(255,255,255,0.97);
-            color: #181d38;
-            padding: 18px 0 10px 0;
-            width: 100%;
-            top: 0;
-            position: sticky;
-            z-index: 2;
-            box-shadow: 0 2px 12px rgba(24,29,56,0.08);
+        header{
+            background-color:rgba(255,255,255,.97);
+            color:#181d38;
+            padding:18px 0 10px;
+            width:100%;
+            position:sticky;
+            top:0;
+            z-index:2;
+            box-shadow:0 2px 12px rgba(24,29,56,.08);
         }
-        .header-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .header-content{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
         }
-        h1 {
-            font-size: 2.2rem;
-            font-family: 'Roboto', Arial, sans-serif;
-            font-weight: 700;
-            margin: 0 0 4px 0;
-            color: #007bff;
-            text-shadow: 1px 1px #fff;
+        h1{
+            font-size:2.2rem;
+            font-weight:700;
+            margin:0 0 4px;
+            color:#007bff;
+            text-shadow:1px 1px #fff;
         }
-        .blog-header {
-            font-size: 1.5rem;
-            font-weight: 500;
-            margin-bottom: 8px;
-            color: #181d38;
-            text-shadow: 1px 1px #fff;
+        .blog-header{
+            font-size:1.5rem;
+            font-weight:500;
+            color:#181d38;
+            margin-bottom:8px;
+            text-shadow:1px 1px #fff;
         }
-        .home-button {
-            margin-top: 2px;
-            text-align: center;
+        .home-button a{
+            display:inline-block;
+            border:1px solid #007bff;
+            color:#007bff;
+            background:#fff;
+            text-decoration:none;
+            border-radius:4px;
+            font-size:16px;
+            padding:8px 18px;
+            font-weight:500;
+            transition:.2s;
         }
-        .home-button a {
-            margin-top: 8px;
-            display: inline-block;
-            border: 1px solid #007bff;
-            color: #007bff;
-            background: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 16px;
-            padding: 8px 18px;
-            font-weight: 500;
-            transition: background 0.2s, color 0.2s;
+        .home-button a:hover{background:#007bff;color:#fff;}
+
+        /* Post */
+        .post-content{
+            max-width:800px;
+            margin:40px auto 0;
+            padding:24px 20px;
+            background:rgba(255,255,255,.97);
+            border-radius:12px;
+            box-shadow:0 4px 16px rgba(24,29,56,.10);
+            position:relative;
+            z-index:1;
         }
-        .home-button a:hover {
-            background: #007bff;
-            color: #fff;
+        .post-title{
+            font-size:1.8rem;
+            font-weight:700;
+            margin-bottom:10px;
+            color:#007bff;
         }
-        .post-content {
-            max-width: 800px;
-            margin: 40px auto 0 auto;
-            padding: 24px 20px;
-            background-color: rgba(255,255,255,0.97);
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(24,29,56,0.10);
-            position: relative;
-            z-index: 1;
+        .post-meta{
+            color:#777;
+            font-size:.98rem;
+            margin-bottom:18px;
         }
-        .post-title {
-            font-size: 1.6rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #007bff;
-            font-family: 'Roboto', Arial, sans-serif;
+        .post-content p,
+        .post-content ul{font-size:1.08rem;color:#181d38;}
+        .post-content ul{margin-left:1.2rem;}
+        blockquote{
+            margin:0 0 18px;
+            padding-left:20px;
+            border-left:4px solid #007bff;
+            font-style:italic;
+            color:#333;
         }
-        .post-title a {
-            color: #007bff;
-            text-decoration: none;
+        h3{
+            color:#181d38;
+            font-size:1.4rem;
+            margin-top:1.6em;
+            margin-bottom:.6em;
+            font-weight:600;
         }
-        .post-title a:hover {
-            text-decoration: underline;
+        @media(max-width:900px){
+            .post-content{margin:24px 8px 0;padding:16px 6px;}
         }
-        .post-meta {
-            font-size: 0.98rem;
-            color: #777;
-            margin-bottom: 18px;
+        @media(max-width:600px){
+            h1{font-size:1.3rem;}
+            .blog-header{font-size:1.1rem;}
+            .post-content{margin:16px 2px 0;padding:10px 2px;}
         }
-        .post-content p {
-            font-size: 1.08rem;
-            line-height: 1.7;
-            margin-bottom: 18px;
-            color: #181d38;
+        footer{
+            background:#181d38;
+            color:#fff;
+            text-align:center;
+            padding:1rem 0 .5rem;
+            margin-top:2rem;
+            z-index:1;
+            position:relative;
         }
-        .post-content ul, .post-content ol {
-            font-size: 1.08rem;
-            color: #181d38;
-        }
-        .post-content img {
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(24,29,56,0.10);
-        }
-        .highlight ul {
-            background: #f8f9fa;
-            border-radius: 6px;
-            padding: 12px 18px;
-        }
-        h2 {
-            font-size: 2rem;
-            font-family: 'Roboto', Arial, sans-serif;
-            color: #007bff;
-            margin-bottom: 10px;
-            text-align: left;
-            font-weight: 700;
-        }
-        h3 {
-            color: #181d38;
-            font-size: 1.2rem;
-            margin-top: 1.5em;
-            margin-bottom: 0.5em;
-        }
-        .post-content table {
-            border-collapse: collapse;
-            width: 100%;
-            margin: 18px 0;
-            font-size: 1.08rem;
-        }
-        .post-content th, .post-content td {
-            border: 1px solid #bbb;
-            padding: 10px 8px;
-            text-align: left;
-        }
-        .post-content th {
-            background: #f0f4ff;
-        }
-        @media (max-width: 900px) {
-            .post-content {
-                margin: 24px 8px 0 8px;
-                padding: 16px 6px;
-            }
-        }
-        @media (max-width: 600px) {
-            header {
-                padding: 10px 0 6px 0;
-            }
-            .post-content {
-                margin: 16px 2px 0 2px;
-                padding: 10px 2px;
-            }
-            h1 {
-                font-size: 1.3rem;
-            }
-            .blog-header {
-                font-size: 1.1rem;
-            }
-        }
-        footer {
-            background: #181d38;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0 0.5rem 0;
-            margin-top: 2rem;
-            font-size: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-        footer a {
-            color: #fff;
-            margin: 0 0.5rem;
-            text-decoration: none;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
+        footer a{color:#fff;margin:0 .5rem;text-decoration:none;}
+        footer a:hover{text-decoration:underline;}
     </style>
 </head>
 <body>
+    <!-- Header -->
     <header>
         <div class="header-content">
             <h1>BlackGarden Technologies</h1>
             <div class="blog-header">Blog | Tech | Cloud | Build | Learn</div>
-            <div class="home-button">
-                <a href="/signin">Home</a>
-            </div>
+            <div class="home-button"><a href="/signin">Home</a></div>
         </div>
     </header>
-    <div style="margin-top: 180px;"></div>
+
+    <!-- Post -->
     <div class="post-content">
         <h2 class="post-title">Why IT Certifications Are More Important Than Ever</h2>
         <p class="post-meta">Posted by Saravanesh on June 24, 2025</p>
@@ -303,8 +245,13 @@
         <p>You don’t need the perfect starting point. What matters is consistent progress. And certifications are one of the simplest, clearest ways to show that progress — to yourself, and to the world.</p>
         <p>So don’t wait for the “right time.” Pick a domain. Choose your first certification. And begin.</p>
     </div>
+
+    <!-- Footer -->
     <footer>
-        &copy; 2025 BlackGarden Tech Blog &mdash; <a href="/">Home</a>
+        &copy; 2025 BlackGarden Technologies. All rights reserved.<br>
+        <a href="https://www.instagram.com/blackgarden.tech/"  target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>
+        <a href="https://wa.me/919003662636"                   target="_blank">WhatsApp</a>
     </footer>
 </body>
 </html>
