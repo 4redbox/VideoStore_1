@@ -447,6 +447,10 @@ def blog_post_8():
 def blog_post_9():
     return render_template("/blogs/Ways_to_build_app.html")
 
+@app.route('/blogs/it_certificate_details')
+def blog_post_10():
+    return render_template("/blogs/IT_Certificate_details.html")    
+
 @app.route('/signout')
 def signout():
     session.pop('username', None)  # Remove username from the session
