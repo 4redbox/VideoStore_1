@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MCQ Quiz | BlackGarden Technologies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" href="https://bgtech-blog-posts-bkend.s3.ap-south-2.amazonaws.com/favicon.ico" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <style>
+    :root {
+      --clr-bg-overlay: rgba(24,29,56,0.75);
+      --clr-brand: #007bff;
+      --clr-heading: #181d38;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      min-height: 100vh;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: var(--clr-bg-overlay);
+      z-index: -1;
+    }
+    header {
+      width: 100%;
+      background: rgba(255,255,255,0.97);
+      box-shadow: 0 2px 12px rgba(24,29,56,0.08);
+      padding: 18px 0 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      text-align: center;
+    }
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+      color: var(--clr-brand);
+      text-shadow: 1px 1px #fff;
+    }
+    .blog-header {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--clr-heading);
+      text-shadow: 1px 1px #fff;
+    }
+    .home-button a {
+      display: inline-block;
+      margin-top: 8px;
+      border: 1px solid var(--clr-brand);
+      background: #fff;
+      color: var(--clr-brand);
+      border-radius: 4px;
+      padding: 8px 18px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .home-button a:hover {
+      background: var(--clr-brand);
+      color: #fff;
+    }
+    .quiz-container {
+      max-width: 600px;
+      width: 100%;
+      margin: 40px auto 0 auto;
+      padding: 32px 24px 24px 24px;
+      background: rgba(255,255,255,0.97);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(24,29,56,0.10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+    }
+    .quiz-container h2 {
+      color: var(--clr-brand);
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+      font-weight: 700;
+      text-align: center;
+    }
+    #excelFile {
+      margin-bottom: 18px;
+    }
+    .question {
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    .options label {
+      display: block;
+      margin-bottom: 4px;
+      cursor: pointer;
+    }
+    #submitBtn {
+      margin-top: 20px;
+      background: var(--clr-brand);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 0;
+      width: 100%;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+      display: none;
+    }
+    #submitBtn:hover {
+      background: #0056b3;
+    }
+    #result {
+      margin-top: 18px;
+      font-size: 1.15rem;
+      color: var(--clr-heading);
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .quiz-container {
+        padding: 16px 6px 12px 6px;
+        margin: 16px 2px 0 2px;
+      }
+      h1 {
+        font-size: 1.3rem;
+      }
+      .blog-header {
+        font-size: 1.1rem;
+      }
+    }
+    footer {
+      background: var(--clr-heading);
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0 .6rem 0;
+      margin-top: 2rem;
+      font-size: 1rem;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    footer a {
+      color: #fff;
+      margin: 0 .5rem;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>BlackGarden Technologies</h1>
+      <div class="blog-header">MCQ Quiz from Excel</div>
+      <div class="home-button"><a href="/signin">Home</a></div>
+    </div>
+  </header>
+  <div class="quiz-container">
+    <h2>Upload Excel to Start Quiz</h2>
+    <input type="file" id="excelFile" accept=".xlsx, .xls" />
+    <div id="quizContainer"></div>
+    <button id="submitBtn">Submit Quiz</button>
+    <div id="result"></div>
+  </div>
+  <footer>
+    &copy; 2023 BlackGarden Technologies. All rights reserved.
+    <br>
+    <a href="https://www.instagram.com/blackgarden.tech/" target="_blank">Instagram</a>
+    <a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>
+    <a href="https://wa.me/919003662636" target="_blank">WhatsApp</a>
+  </footer>
+  <script>
+    let quizData = [];
+
+    document.getElementById('excelFile').addEventListener('change', function (e) {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+        quizData = XLSX.utils.sheet_to_json(sheet);
+        renderQuiz();
+      };
+
+      reader.readAsArrayBuffer(file);
+    });
+
+    function renderQuiz() {
+      const container = document.getElementById('quizContainer');
+      container.innerHTML = '';
+
+      quizData.forEach((q, index) => {
+        const qDiv = document.createElement('div');
+        qDiv.className = 'question';
+        qDiv.innerHTML = `
+          <p><strong>Q${index + 1}:</strong> ${q.Question}</p>
+          <div class="options">
+            <label><input type="radio" name="q${index}" value="A"> A. ${q.OptionA}</label>
+            <label><input type="radio" name="q${index}" value="B"> B. ${q.OptionB}</label>
+            <label><input type="radio" name="q${index}" value="C"> C. ${q.OptionC}</label>
+            <label><input type="radio" name="q${index}" value="D"> D. ${q.OptionD}</label>
+          </div>
+        `;
+        container.appendChild(qDiv);
+      });
+
+      document.getElementById('submitBtn').style.display = 'inline-block';
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', function () {
+      let score = 0;
+      quizData.forEach((q, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selected && selected.value === q.Answer.trim()) {
+          score++;
+        }
+      });
+
+      document.getElementById('result').innerHTML = `<h3>Your Score: ${score} / ${quizData.length}</h3>`;
+    });
+  </script>
+</body>
+</html>
