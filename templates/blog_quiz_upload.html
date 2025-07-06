@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Quiz to S3 | BlackGarden Technologies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" href="https://bgtech-blog-posts-bkend.s3.ap-south-2.amazonaws.com/favicon.ico" type="image/x-icon">
+  <style>
+    :root {
+      --clr-bg-overlay: rgba(24,29,56,0.75);
+      --clr-brand: #007bff;
+      --clr-heading: #181d38;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      min-height: 100vh;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: var(--clr-bg-overlay);
+      z-index: -1;
+    }
+    header {
+      width: 100%;
+      background: rgba(255,255,255,0.97);
+      box-shadow: 0 2px 12px rgba(24,29,56,0.08);
+      padding: 18px 0 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      text-align: center;
+    }
+    .header-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+      color: var(--clr-brand);
+      text-shadow: 1px 1px #fff;
+    }
+    .blog-header {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: var(--clr-heading);
+      text-shadow: 1px 1px #fff;
+    }
+    .home-button a {
+      display: inline-block;
+      margin-top: 8px;
+      border: 1px solid var(--clr-brand);
+      background: #fff;
+      color: var(--clr-brand);
+      border-radius: 4px;
+      padding: 8px 18px;
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+    .home-button a:hover {
+      background: var(--clr-brand);
+      color: #fff;
+    }
+    .upload-container {
+      max-width: 400px;
+      width: 100%;
+      margin: 40px auto 0 auto;
+      padding: 32px 24px 24px 24px;
+      background: rgba(255,255,255,0.97);
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(24,29,56,0.10);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+    }
+    .upload-container h2 {
+      color: var(--clr-brand);
+      font-size: 1.5rem;
+      margin-bottom: 18px;
+      font-weight: 700;
+      text-align: center;
+    }
+    #quizFile {
+      margin-bottom: 18px;
+    }
+    #status {
+      margin-top: 18px;
+      color: var(--clr-heading);
+      text-align: center;
+      word-break: break-all;
+      font-weight: bold;
+    }
+    button {
+      background: var(--clr-brand);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 10px 0;
+      width: 100%;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background .2s;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    @media (max-width: 600px) {
+      .upload-container {
+        padding: 16px 6px 12px 6px;
+        margin: 16px 2px 0 2px;
+      }
+      h1 {
+        font-size: 1.3rem;
+      }
+      .blog-header {
+        font-size: 1.1rem;
+      }
+    }
+    footer {
+      background: var(--clr-heading);
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0 .6rem 0;
+      margin-top: 2rem;
+      font-size: 1rem;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    footer a {
+      color: #fff;
+      margin: 0 .5rem;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>BlackGarden Technologies</h1>
+      <div class="blog-header">Upload Quiz Excel to S3</div>
+      <div class="home-button"><a href="/signin">Home</a></div>
+    </div>
+  </header>
+  <div class="upload-container">
+    <h2>Upload Excel Quiz File</h2>
+    <input type="file" id="quizFile" accept=".xlsx, .xls" />
+    <button onclick="uploadQuiz()">Upload</button>
+    <p id="status"></p>
+  </div>
+  <footer>
+    &copy; 2023 BlackGarden Technologies. All rights reserved.
+    <br>
+    <a href="https://www.instagram.com/blackgarden.tech/" target="_blank">Instagram</a>
+    <a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>
+    <a href="https://wa.me/919003662636" target="_blank">WhatsApp</a>
+  </footer>
+  <script>
+    async function uploadQuiz() {
+      const fileInput = document.getElementById('quizFile');
+      const file = fileInput.files[0];
+      if (!file) {
+        alert("Please select a file to upload.");
+        return;
+      }
+
+      document.getElementById('status').innerText = "⏳ Requesting upload URL...";
+
+      try {
+        // Step 1: Get the pre-signed URL from Flask
+        const res = await fetch('/get_upload_url', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename: file.name })
+        });
+
+        const data = await res.json();
+        if (!data.url) {
+          document.getElementById('status').innerText = "❌ Failed to get upload URL.";
+          return;
+        }
+
+        // Step 2: Upload to S3 directly
+        const uploadRes = await fetch(data.url, {
+          method: 'PUT',
+          body: file
+        });
+
+        if (uploadRes.ok) {
+          document.getElementById('status').innerText = "✅ Upload successful!";
+        } else {
+          document.getElementById('status').innerText = "❌ Upload failed. Try again.";
+        }
+
+      } catch (error) {
+        console.error("Upload error:", error);
+        document.getElementById('status').innerText = "❌ Error during upload.";
+      }
+    }
+  </script>
+</body>
+</html>

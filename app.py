@@ -466,5 +466,34 @@ def video_page():
         uname = session['username']        
         return render_template('video_page.html', s3_url=s3_url,classname=classname,uname=uname)
 
+@app.route('/get_upload_url', methods=['POST'])
+def get_upload_url():
+    data = request.get_json()
+    filename = data.get('filename')
+    
+    if not filename:
+        return jsonify({'error': 'Filename is required'}), 400
+
+    try:
+        s3 = boto3.client(
+            's3',
+            aws_access_key_id=aws_access,
+            aws_secret_access_key=aws_secret,
+            region_name=region
+        )
+
+        presigned_url = s3.generate_presigned_url(
+            'put_object',
+            Params={'Bucket': 'videostorequizdb', 'Key': f'test-quiz/{filename}'},
+            ExpiresIn=300
+        )
+        return jsonify({'url': presigned_url})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+    
+@app.route('/upload_quiz_page')
+def upload_quiz_page():
+    return render_template('blog_quiz_upload.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
