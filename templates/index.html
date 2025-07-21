@@ -239,15 +239,15 @@
         }
 
         function hideHeader() {
-            header.style.top = '-50%';
-            tableContainer.style.marginTop = '240px';
+            header.style.top = '-100%';
+            tableContainer.style.marginTop = '100px';
             isHeaderVisible = false;
         }
 
         function handleMouseMove(event) {
             if (window.scrollY === 0 && event.clientY <= 10 && !isHeaderVisible) {
                 showHeader();
-            } else if ((window.scrollY > 0 || event.clientY > 150) && isHeaderVisible) {
+            } else if ((window.scrollY > 0 || event.clientY > 180) && isHeaderVisible) {
                 hideHeader();
             }
         }
