@@ -449,7 +449,11 @@ def blog_post_9():
 
 @app.route('/blogs/it_certificate_details')
 def blog_post_10():
-    return render_template("/blogs/IT_Certificate_details.html")    
+    return render_template("/blogs/IT_Certificate_details.html")
+
+@app.route('/blogs/marathon_timing_solution')
+def blog_post_11():
+    return render_template("/blogs/Marathon_Architecture.html")
 
 @app.route('/signout')
 def signout():

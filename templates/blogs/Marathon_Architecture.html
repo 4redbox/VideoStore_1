@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why IT Certifications Are More Important Than Ever | BlackGarden Tech Blog</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Beginner&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://bgtech-blog-posts-backend.s3.ap-south-1.amazonaws.com/favicon.ico" type="image/x-icon">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title"       content="Why IT Certifications Are More Important Than Ever">
+    <meta property="og:description" content="From unknown to unstoppable — certifications are the quiet start of many transformational stories.">
+    <meta property="og:image"       content="https://bgtech-blog-posts-backend.s3.ap-south-1.amazonaws.com/android-chrome-512x512.png">
+    <meta property="og:url"         content="https://blackgardentech.in/blogs/ways_to_build_app">
+    <meta property="og:type"        content="article">
+    <meta property="og:site_name"   content="BlackGarden Tech Blog">
+
+    <!-- Styles -->
+    <style>
+        body{
+            font-family:'Roboto',Arial,sans-serif;
+            line-height:1.6;
+            margin:0;
+            padding:0;
+            min-height:100vh;
+            background:url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            background-size:cover;
+            position:relative;
+        }
+        body::before{
+            content:"";
+            position:fixed;
+            top:0;left:0;right:0;bottom:0;
+            background:rgba(24,29,56,.75);
+            z-index:0;
+        }
+        header{
+            background-color:rgba(255,255,255,.97);
+            color:#181d38;
+            padding:18px 0 10px;
+            width:100%;
+            position:sticky;
+            top:0;
+            z-index:2;
+            box-shadow:0 2px 12px rgba(24,29,56,.08);
+        }
+        .header-content{
+            display:flex;
+            flex-direction:column;
+            align-items:center;
+        }
+        h1{
+            font-size:2.2rem;
+            font-weight:700;
+            margin:0 0 4px;
+            color:#007bff;
+            text-shadow:1px 1px #fff;
+        }
+        .blog-header{
+            font-size:1.5rem;
+            font-weight:500;
+            color:#181d38;
+            margin-bottom:8px;
+            text-shadow:1px 1px #fff;
+        }
+        .home-button a{
+            display:inline-block;
+            border:1px solid #007bff;
+            color:#007bff;
+            background:#fff;
+            text-decoration:none;
+            border-radius:4px;
+            font-size:16px;
+            padding:8px 18px;
+            font-weight:500;
+            transition:.2s;
+        }
+        .home-button a:hover{background:#007bff;color:#fff;}
+
+        /* Post */
+        .post-content{
+            max-width:800px;
+            margin:40px auto 0;
+            padding:24px 20px;
+            background:rgba(255,255,255,.97);
+            border-radius:12px;
+            box-shadow:0 4px 16px rgba(24,29,56,.10);
+            position:relative;
+            z-index:1;
+        }
+        .post-title{
+            font-size:1.8rem;
+            font-weight:700;
+            margin-bottom:10px;
+            color:#007bff;
+        }
+        .post-meta{
+            color:#777;
+            font-size:.98rem;
+            margin-bottom:18px;
+        }
+        .post-content p,
+        .post-content ul{font-size:1.08rem;color:#181d38;}
+        .post-content ul{margin-left:1.2rem;}
+        blockquote{
+            margin:0 0 18px;
+            padding-left:20px;
+            border-left:4px solid #007bff;
+            font-style:italic;
+            color:#333;
+        }
+        h3{
+            color:#181d38;
+            font-size:1.4rem;
+            margin-top:1.6em;
+            margin-bottom:.6em;
+            font-weight:600;
+        }
+        @media(max-width:900px){
+            .post-content{margin:24px 8px 0;padding:16px 6px;}
+        }
+        @media(max-width:600px){
+            h1{font-size:1.3rem;}
+            .blog-header{font-size:1.1rem;}
+            .post-content{margin:16px 2px 0;padding:10px 2px;}
+        }
+        footer{
+            background:#181d38;
+            color:#fff;
+            text-align:center;
+            padding:1rem 0 .5rem;
+            margin-top:2rem;
+            z-index:1;
+            position:relative;
+        }
+        footer a{color:#fff;margin:0 .5rem;text-decoration:none;}
+        footer a:hover{text-decoration:underline;}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <h1>BlackGarden Technologies</h1>
+            <div class="blog-header">Blog | Tech | Cloud | Build | Learn</div>
+            <div class="home-button"><a href="/signin">Home</a></div>
+        </div>
+    </header>
+
+    <!-- Post -->
+    <div class="post-content">
+        <h2 class="post-title">Designing a Marathon Timing Solution on AWS – An Architect’s Perspective</h2>
+        <p class="post-meta">Posted by Saravanesh on September 1, 2025</p>
+        <p>Last month, I ran my second marathon of the year — and this time I finished with a better result than my first attempt (not really!). While I was catching my breath every ten minutes, a thought kept running: how do these events actually track thousands of runners in real-time? It’s clearly not just someone with a stopwatch and clipboard at the end of the race. Behind the scenes, there’s a complex system ensuring every runner’s time is captured and displayed accurately.</p>
+        <p>Now, let’s put on our architect hats. (Not the fancy construction helmets — though sometimes it feels like we’re building skyscrapers out of APIs and VPCs). As architects, our job isn’t just to pick services and draw pretty diagrams; it’s to design systems that are reliable, secure, cost-effective, high-performing, and operationally sound. In other words: the AWS Well-Architected Framework is our finish line guide.</p>
+        <p>In this blog, I’ll cover two things, from an architect’s point of view:</p>
+        <ol>
+            <li>The 5 important things to consider when designing a marathon timing solution in AWS (based on the pillars).</li>
+            <li>The 5 architect-level steps to apply them — not coding or building, but defining, documenting, governing, and evolving the design.</li>
+        </ol>
+        <p>Think of it as planning a marathon — not running it. We’ll focus on strategy, pacing, and ensuring the race can even happen in the first place.</p>
+        <p><strong>Project Deliverables:</strong></p>
+        <ul>
+            <li>Real-time runner tracking using IoT tags (RFID chips / smartwatches).</li>
+            <li>Accurate timing data stored in DynamoDB with millisecond precision.</li>
+            <li>Live leaderboards hosted on S3 + CloudFront, accessible via web and mobile.</li>
+            <li>Alerts and notifications for race organizers if data flow is interrupted.</li>
+            <li>Operational monitoring & dashboards to ensure reliability and performance during race day.</li>
+            <li>Secure and scalable AWS foundation that can handle thousands of participants with minimal latency.</li>
+        </ul>
+        <div style="text-align: center;">
+            <img src="https://bgtech-blog-posts-backend.s3.ap-south-1.amazonaws.com/Marathon-solution.png" alt="Marathon-solution" style="max-width: 70%; height: auto;">
+        </div>        
+        <hr>
+        <h3>1. The 5 Important Things to Consider</h3>
+        <b>Operational Excellence</b>
+        <ul>
+            <li>Clear monitoring for timing data flow (CloudWatch, X-Ray).</li>
+            <li>Dashboards for real-time runner tracking.</li>
+            <li>Automated deployments for updates so nothing breaks on race day.</li>
+        </ul>
+        <b>Security</b>
+        <ul>
+            <li>Encrypt runner data (KMS, TLS).</li>
+            <li>Strict IAM roles and least-privilege policies.</li>
+            <li>VPC isolation and Security Groups to protect the system.</li>
+        </ul>
+        <b>Reliability</b>
+        <ul>
+            <li>Multi-AZ for fault tolerance.</li>
+            <li>Auto Scaling for peak loads (everyone finishes around the same time).</li>
+            <li>Backup and failover for critical databases.</li>
+        </ul>
+        <b>Performance Efficiency</b>
+        <ul>
+            <li>DynamoDB for fast timing writes.</li>
+            <li>ElastiCache to speed up leaderboards.</li>
+            <li>CloudFront to deliver global leaderboard pages quickly.</li>
+        </ul>
+        <b>Cost Optimization</b>
+        <ul>
+            <li>Serverless (Lambda, API Gateway) for burst traffic.</li>
+            <li>Lifecycle policies for S3 to store history cheaply.</li>
+            <li>Spot instances for background analytics.</li>
+        </ul>
+        <hr>
+        <h3>2. The 5 Architect-Level Steps to Apply Them</h3>
+        <b>Step 1: Define Requirements & Priorities</b>
+        <ul>
+            <li>Business goal: Accurate, real-time results.</li>
+            <li>NFRs: Latency &lt; 2 seconds, RPO near zero, 99.9% uptime.</li>
+            <li>Priority: Reliability + Performance (nobody forgives slow or missing results).</li>
+        </ul>
+        <b>Step 2: Document the Architecture (HLD & LLD)</b>
+        <ul>
+            <li>Create a High-Level Design (HLD) showing data flows, services, and interactions.</li>
+            <li>Drill into Low-Level Design (LLD) for components like DynamoDB schema, IAM roles, and Lambda triggers.</li>
+            <li>Present these designs to stakeholders for review and refinement.</li>
+            <li>Keep documentation as a living artifact, evolving with the system.</li>
+        </ul>
+        <p>Below, I’ve included the HLD and LLD diagrams for the Marathon Timing Solution so you can visualize how everything fits together.</p>
+        <div style="text-align: center;">
+            <img src="https://bgtech-blog-posts-backend.s3.ap-south-1.amazonaws.com/AWS_Arch_Marathon.drawio.png" alt="Marathon-HLD-LLD" style="max-width: 100%; height: auto;">
+        </div>             
+        <b>Step 3: Govern & Guide Implementation</b>
+        <ul>
+            <li>Set standards for tagging, logging, and security.</li>
+            <li>Define IaC approach (CloudFormation, Terraform).</li>
+            <li>Act as reviewer and guide for dev/ops teams during build.</li>
+        </ul>
+        <b>Step 4: Validate Against Well-Architected Pillars</b>
+        <ul>
+            <li>Well-Architected Tool reviews.</li>
+            <li>Security audits with GuardDuty, Security Hub.</li>
+            <li>Reliability tests (chaos testing).</li>
+            <li>Cost checks in Cost Explorer.</li>
+        </ul>
+        <b>Step 5: Continuous Review & Evolution</b>
+        <ul>
+            <li>Regular architecture reviews.</li>
+            <li>Optimize compute (move to Graviton).</li>
+            <li>Scale caching strategies as marathons grow.</li>
+        </ul>
+        <hr>
+        <h3>Conclusion</h3>
+        <p>A marathon timing system isn’t just about tracking who runs fastest — it’s about designing a system that never misses a beat, even under pressure. As architects, we don’t run the race ourselves; we design the track, ensure it’s safe, and make sure the finish line is always there.</p>
+        <p>The AWS Well-Architected Framework gives us the perfect way to ensure our design is not just functional, but battle-tested for scale, security, and efficiency. Because in cloud architecture — much like in marathons — it’s not just about the sprint, it’s about finishing strong.</p>
+        <p>If this kind of deep-dive into system design interests you, let me know in the comments. I’m planning to start a series where I’ll break down different real-world applications — from marathons to streaming platforms to ticketing systems — through the lens of an architect. Think of it as exploring “how would you design this?” step by step. If that sounds useful, I’d love to hear what kind of systems you’d like me to cover next. And of course, if you feel I missed something or got something wrong in this post, do share your thoughts — I’d be glad to refine and learn along the way.</p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2025 BlackGarden Technologies. All rights reserved.<br>
+        <a href="https://www.instagram.com/blackgarden.tech/"  target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/raja-saravanesh/" target="_blank">LinkedIn</a>
+        <a href="https://wa.me/919003662636"                   target="_blank">WhatsApp</a>
+    </footer>
+</body>
+</html>
